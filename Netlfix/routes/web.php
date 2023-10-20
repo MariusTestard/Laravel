@@ -14,9 +14,16 @@ use App\Http\Controllers\NetflixFilmsController;
 |
 */
 
-Route::get('/', function () {
+// 1 CONTROLLER PAR TABLE
+
+// ROUTE LARAVEL ACCUEILi
+Route::get('/laravel', function () {
     return view('welcome');
 });
 
-Route::get('netflix', 
-[NetflixFilmsController::class, 'index']);
+
+// ROUTE NETFLIX
+Route::get(
+    '/',
+    [NetflixFilmsController::class, 'index']
+);

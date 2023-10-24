@@ -20,6 +20,7 @@ class Personnes extends Seeder
                 'nom' => 'Pacino',
                 'date' => '1940-04-24',
                 'photo' => 'https://media.senscritique.com/media/000019202093/150x201/al_pacino.jpg',
+                'rolePrincipal' => 'Réalisateur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
             [
@@ -28,6 +29,7 @@ class Personnes extends Seeder
                 'nom' => 'De Niro',
                 'date' => '1943-08-16',
                 'photo' => 'https://media.senscritique.com/media/000019159170/150x201/robert_de_niro.png',
+                'rolePrincipal' => 'Acteur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
             [
@@ -36,6 +38,7 @@ class Personnes extends Seeder
                 'nom' => 'DiCaprio',
                 'date' => '1974-11-10',
                 'photo' => 'https://media.senscritique.com/media/000019998957/150x201/leonardo_di_caprio.png',
+                'rolePrincipal' => 'Producteur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
             [
@@ -44,6 +47,7 @@ class Personnes extends Seeder
                 'nom' => 'Spacey',
                 'date' => '1959-07-25',
                 'photo' => 'https://media.senscritique.com/media/000019153111/150x201/kevin_spacey.png',
+                'rolePrincipal' => 'Réalisateur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
             [
@@ -52,6 +56,7 @@ class Personnes extends Seeder
                 'nom' => 'Bogart',
                 'date' => '1899-12-13',
                 'photo' => 'https://media.senscritique.com/media/000017224250/150x201/humphrey_bogart.jpg',
+                'rolePrincipal' => 'Acteur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
             [
@@ -60,6 +65,7 @@ class Personnes extends Seeder
                 'nom' => 'Mifune',
                 'date' => '1920-12-23',
                 'photo' => 'https://media.senscritique.com/media/000016835619/150x201/toshiro_mifune.jpg',
+                'rolePrincipal' => 'Producteur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
             [
@@ -68,6 +74,7 @@ class Personnes extends Seeder
                 'nom' => 'Eastwood',
                 'date' => '1930-05-30',
                 'photo' => 'https://media.senscritique.com/media/000019199535/150x201/clint_eastwood.png',
+                'rolePrincipal' => 'Producteur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
             [
@@ -76,6 +83,7 @@ class Personnes extends Seeder
                 'nom' => 'Freeman',
                 'date' => '1937-05-31',
                 'photo' => 'https://media.senscritique.com/media/000019146978/150x201/morgan_freeman.png',
+                'rolePrincipal' => 'Acteur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
             [
@@ -84,6 +92,7 @@ class Personnes extends Seeder
                 'nom' => 'Depp',
                 'date' => '1963-06-8',
                 'photo' => 'https://media.senscritique.com/media/000019209454/150x201/johnny_depp.png',
+                'rolePrincipal' => 'Acteur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
             [
@@ -92,6 +101,7 @@ class Personnes extends Seeder
                 'nom' => 'Brando',
                 'date' => '1924-04-30',
                 'photo' => 'https://media.senscritique.com/media/000020242962/150x201/marlon_brando.jpg',
+                'rolePrincipal' => 'Acteur',
                 'created_at' => '2018-01-11 10:16:32'
             ],
         ]);

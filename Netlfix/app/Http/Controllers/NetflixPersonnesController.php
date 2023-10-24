@@ -3,21 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Film;
+use App\Models\Personne;
 
-class NetflixFilmsController extends Controller
+class NetflixPersonnesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $filmsHorror = Film::where('type', '=', 'Horror')->get();
-        $filmsThriller = Film::where('type', '=', 'Thriller')->get();
-        $filmsMystery = Film::where('type', '=', 'Mystery')->get();
-        $filmsMostPop = Film::where('cote', '>=', 7.5)->get();
-        $filmsLeastPop = Film::where('cote', '<=', 2.5)->get();
-        return View('Netflix.index', compact('filmsHorror', 'filmsThriller', 'filmsMystery', 'filmsMostPop', 'filmsLeastPop'));
+        $personnesVieux = Personne::orderBy('date', 'asc')->limit(4)->get();
+        $personnesJeune = Personne::orderBy('date', 'desc')->limit(4)->get();
+        $personnesActeur = Personne::where('rolePrincipal', '=', 'Acteur')->get();
+        $personnesRealisateur = Personne::where('rolePrincipal', '=', 'Réalisateur')->get();
+        $personnesProducteur = Personne::where('rolePrincipal', '=', 'Producteur')->get();
+        return View('Netflix.personne', compact('personnesVieux', 'personnesJeune', 'personnesActeur', 'personnesRealisateur', 'personnesProducteur'));
     }
 
     /**

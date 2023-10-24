@@ -23,7 +23,11 @@ return new class extends Migration
             $table->unsignedBigInteger( 'producteur');
             $table->foreign('producteur')->references('id')->on('personnes');
             $table->string('lienFilm', 500);
-            $table->string('pochette', 500);
+            $table->string('pochette', 1000);
+            $table->string('type', 30);
+            $table->string('brand', 50);
+            $table->double('cote');
+            $table->string('rating', 50);
             $table->timestamps();
         });
     }

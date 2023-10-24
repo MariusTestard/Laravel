@@ -6,6 +6,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\facades\DB;
 
+
 class Film_Personne extends Seeder
 {
     /**

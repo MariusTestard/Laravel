@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NetflixFilmsController;
+use App\Http\Controllers\NetflixPersonnesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,14 +17,17 @@ use App\Http\Controllers\NetflixFilmsController;
 
 // 1 CONTROLLER PAR TABLE
 
-// ROUTE LARAVEL ACCUEILi
+// ROUTE LARAVEL ACCUEIL
 Route::get('/laravel', function () {
     return view('welcome');
 });
 
 
-// ROUTE NETFLIX
+// ROUTE FILMS
 Route::get(
     '/',
-    [NetflixFilmsController::class, 'index']
-);
+    [NetflixFilmsController::class, 'index'])->name('netflix.index');
+
+Route::get(
+    '/personne',
+    [NetflixPersonnesController::class, 'index'])->name('netflix.peronne');

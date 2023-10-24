@@ -30,15 +30,12 @@
             <span class="nav-icon"></span>
         </label>
         <!--logo------------------->
-        <a href="index.html" class="logo">
-            Movies<span>.hd</span>
-        </a>
+        @yield('logo')
         <!--menu------------------->
         <ul class="menu">
             <li><a href="#">Home</a></li>
-            <li><a href="#">Genre</a></li>
-            <li><a href="#">Acteurs</a></li>
-            <li><a href="/">Movies</a></li>
+            <li><a href="/personne">Personnes</a></li>
+            <li><a href="/">Films</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
         <!--Search-box------------->

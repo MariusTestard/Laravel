@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('nom', 50);
             $table->date('date');
             $table->string('photo', 500);
+            $table->string('rolePrincipal',50);
             $table->timestamps();
         });
     }

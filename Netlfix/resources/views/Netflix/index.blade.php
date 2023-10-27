@@ -4,7 +4,7 @@
 @section('title', 'MHD - Full HD Movies')
 
 @section('logo')
-<a href="index.html" class="logo">
+<a href="#" class="logo">
     Films<span>.hd</span>
 </a>
 @endsection
@@ -26,11 +26,14 @@
 
         @if (count($filmsThriller))
         @foreach($filmsThriller as $filmThriller)
-        <div class="post-box">
+
+        <div class="post-box" >
+            <a href="{{ route('film.show', [$filmThriller]) }}">
             <!--img-->
-            <div class="post-img">
-                <img alt="" src="{{$filmThriller->pochette}}" />
-            </div>
+                <div class="post-img">
+                    <img alt="" src="{{$filmThriller->pochette}}" />
+                </div>
+            </a>
             <!--text---------->
             <div class="main-slider-text">
                 <!--quality----->
@@ -69,43 +72,43 @@
     <div class="post-container">
 
 
-@if (count($filmsHorror))
-@foreach($filmsHorror as $filmHorror)
-<div class="post-box">
-    <!--img-->
-    <div class="post-img">
-        <img alt="" src="{{$filmHorror->pochette}}" />
-    </div>
-    <!--text---------->
-    <div class="main-slider-text">
-        <!--quality----->
-        <span class="quality">Full HD</span>
-        <!--bottom-text-->
-        <div class="bottom-text">
-            <!--name----->
-            <div class="movie-name">
-                <span>{{$filmHorror->annee}}</span>
-                <a href="#">{{$filmHorror->titre}}</a>
+        @if (count($filmsHorror))
+        @foreach($filmsHorror as $filmHorror)
+        <div class="post-box">
+            <!--img-->
+            <div class="post-img">
+                <img alt="" src="{{$filmHorror->pochette}}" />
             </div>
-            <!--Category-and-rating---->
-            <div class="category-rating">
-                <!--category-->
-                <div class="category">
-                    <a href="#">{{$filmHorror->type}}</a>
-                </div>
-                <!--rating--->
-                <div class="rating">
-                    {{$filmHorror->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+            <!--text---------->
+            <div class="main-slider-text">
+                <!--quality----->
+                <span class="quality">Full HD</span>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$filmHorror->annee}}</span>
+                        <a href="#">{{$filmHorror->titre}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
+                            <a href="#">{{$filmHorror->type}}</a>
+                        </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$filmHorror->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        @endforeach
+        @else
+        <h1>Il n'y a pas de films</h1>
+        @endif
     </div>
-</div>
-@endforeach
-@else
-<h1>Il n'y a pas de films</h1>
-@endif
-</div>
 
 
     <div class="latest-heading">
@@ -114,43 +117,43 @@
     <div class="post-container">
 
 
-@if (count($filmsMystery))
-@foreach($filmsMystery as $filmMystery)
-<div class="post-box">
-    <!--img-->
-    <div class="post-img">
-        <img alt="" src="{{$filmMystery->pochette}}" />
-    </div>
-    <!--text---------->
-    <div class="main-slider-text">
-        <!--quality----->
-        <span class="quality">Full HD</span>
-        <!--bottom-text-->
-        <div class="bottom-text">
-            <!--name----->
-            <div class="movie-name">
-                <span>{{$filmMystery->annee}}</span>
-                <a href="#">{{$filmMystery->titre}}</a>
+        @if (count($filmsMystery))
+        @foreach($filmsMystery as $filmMystery)
+        <div class="post-box">
+            <!--img-->
+            <div class="post-img">
+                <img alt="" src="{{$filmMystery->pochette}}" />
             </div>
-            <!--Category-and-rating---->
-            <div class="category-rating">
-                <!--category-->
-                <div class="category">
-                    <a href="#">{{$filmMystery->type}}</a>
-                </div>
-                <!--rating--->
-                <div class="rating">
-                    {{$filmMystery->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+            <!--text---------->
+            <div class="main-slider-text">
+                <!--quality----->
+                <span class="quality">Full HD</span>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$filmMystery->annee}}</span>
+                        <a href="#">{{$filmMystery->titre}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
+                            <a href="#">{{$filmMystery->type}}</a>
+                        </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$filmMystery->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        @endforeach
+        @else
+        <h1>Il n'y a pas de films</h1>
+        @endif
     </div>
-</div>
-@endforeach
-@else
-<h1>Il n'y a pas de films</h1>
-@endif
-</div>
 
 
 
@@ -162,43 +165,43 @@
     <div class="post-container">
 
 
-@if (count($filmsMostPop))
-@foreach($filmsMostPop as $filmMostPop)
-<div class="post-box">
-    <!--img-->
-    <div class="post-img">
-        <img alt="" src="{{$filmMostPop->pochette}}" />
-    </div>
-    <!--text---------->
-    <div class="main-slider-text">
-        <!--quality----->
-        <span class="quality">Full HD</span>
-        <!--bottom-text-->
-        <div class="bottom-text">
-            <!--name----->
-            <div class="movie-name">
-                <span>{{$filmMostPop->annee}}</span>
-                <a href="#">{{$filmMostPop->titre}}</a>
+        @if (count($filmsMostPop))
+        @foreach($filmsMostPop as $filmMostPop)
+        <div class="post-box">
+            <!--img-->
+            <div class="post-img">
+                <img alt="" src="{{$filmMostPop->pochette}}" />
             </div>
-            <!--Category-and-rating---->
-            <div class="category-rating">
-                <!--category-->
-                <div class="category">
-                    <a href="#">{{$filmMostPop->type}}</a>
-                </div>
-                <!--rating--->
-                <div class="rating">
-                    {{$filmMostPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+            <!--text---------->
+            <div class="main-slider-text">
+                <!--quality----->
+                <span class="quality">Full HD</span>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$filmMostPop->annee}}</span>
+                        <a href="#">{{$filmMostPop->titre}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
+                            <a href="#">{{$filmMostPop->type}}</a>
+                        </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$filmMostPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        @endforeach
+        @else
+        <h1>Il n'y a pas de films</h1>
+        @endif
     </div>
-</div>
-@endforeach
-@else
-<h1>Il n'y a pas de films</h1>
-@endif
-</div>
 
 
 
@@ -209,43 +212,43 @@
     <div class="post-container">
 
 
-@if (count($filmsLeastPop))
-@foreach($filmsLeastPop as $filmLeastPop)
-<div class="post-box">
-    <!--img-->
-    <div class="post-img">
-        <img alt="" src="{{$filmLeastPop->pochette}}" />
-    </div>
-    <!--text---------->
-    <div class="main-slider-text">
-        <!--quality----->
-        <span class="quality">Full HD</span>
-        <!--bottom-text-->
-        <div class="bottom-text">
-            <!--name----->
-            <div class="movie-name">
-                <span>{{$filmLeastPop->annee}}</span>
-                <a href="#">{{$filmLeastPop->titre}}</a>
+        @if (count($filmsLeastPop))
+        @foreach($filmsLeastPop as $filmLeastPop)
+        <div class="post-box">
+            <!--img-->
+            <div class="post-img">
+                <img alt="" src="{{$filmLeastPop->pochette}}" />
             </div>
-            <!--Category-and-rating---->
-            <div class="category-rating">
-                <!--category-->
-                <div class="category">
-                    <a href="#">{{$filmLeastPop->type}}</a>
-                </div>
-                <!--rating--->
-                <div class="rating">
-                    {{$filmLeastPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+            <!--text---------->
+            <div class="main-slider-text">
+                <!--quality----->
+                <span class="quality">Full HD</span>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$filmLeastPop->annee}}</span>
+                        <a href="#">{{$filmLeastPop->titre}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
+                            <a href="#">{{$filmLeastPop->type}}</a>
+                        </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$filmLeastPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+        @endforeach
+        @else
+        <h1>Il n'y a pas de films</h1>
+        @endif
     </div>
-</div>
-@endforeach
-@else
-<h1>Il n'y a pas de films</h1>
-@endif
-</div>
 
 
     <!--container-end--->

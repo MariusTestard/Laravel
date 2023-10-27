@@ -29,6 +29,8 @@ return new class extends Migration
             $table->double('cote');
             $table->string('rating', 50);
             $table->timestamps();
+            //$table->foreignId('producteur_id')->constrained('personnes');
+            //$table->foreignId('realisateur_id')->constrained('personnes');
         });
     }
 

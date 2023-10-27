@@ -12,6 +12,7 @@ class NetflixFilmsController extends Controller
      */
     public function index()
     {
+
         $filmsHorror = Film::where('type', '=', 'Horror')->get();
         $filmsThriller = Film::where('type', '=', 'Thriller')->get();
         $filmsMystery = Film::where('type', '=', 'Mystery')->get();
@@ -39,9 +40,9 @@ class NetflixFilmsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Film $film)
     {
-        //
+        return View('netflix.show', compact('film'));
     }
 
     /**

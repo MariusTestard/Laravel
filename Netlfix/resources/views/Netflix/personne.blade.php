@@ -4,7 +4,7 @@
     @section('title', 'MHD - People')
 
     @section('logo')
-    <a href="index.html" class="logo">
+    <a href="#" class="logo">
             Personnes<span>.hd</span>
         </a>
     @endsection

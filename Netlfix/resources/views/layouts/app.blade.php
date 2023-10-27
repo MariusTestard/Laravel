@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="shortcut icon" href="images/fav-icon.png" />
+    <link rel="stylesheet" href="{{asset('css/style.css')}}" />
+    <link rel="shortcut icon" href="{{asset('images/fav-icon.png')}}" />
     <!--==Import-poppins-font====================-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,8 +34,8 @@
         <!--menu------------------->
         <ul class="menu">
             <li><a href="#">Home</a></li>
-            <li><a href="/personne">Personnes</a></li>
             <li><a href="/">Films</a></li>
+            <li><a href="/personne">Personnes</a></li>
             <li><a href="#">Contact</a></li>
         </ul>
         <!--Search-box------------->

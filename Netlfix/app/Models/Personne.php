@@ -9,4 +9,22 @@ class Personne extends Model
 {
     protected $table = 'Personnes';
     use HasFactory;
+
+    // belongsTo (à juste 1)
+    // hasMany (est dans plusieurs)
+    // belongsToMany
+    public function filmsRealises()
+    {
+        return $this->hasMany(Film::class, 'realisateur_id');
+    }
+
+    public function filmsProduits()
+    {
+        return $this->hasMany(Film::class, 'producteur_id');
+    }
+
+    public function filmsDedans()
+    {
+        return $this->hasMany(Film::class, 'id');
+    }
 }

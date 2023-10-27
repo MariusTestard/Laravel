@@ -28,6 +28,10 @@ Route::get(
     '/',
     [NetflixFilmsController::class, 'index'])->name('netflix.index');
 
+    Route::get(
+        '/films/{film}',
+        [NetflixFilmsController::class, 'show'])->name('film.show');
+
 Route::get(
     '/personne',
-    [NetflixPersonnesController::class, 'index'])->name('netflix.peronne');
+    [NetflixPersonnesController::class, 'index'])->name('netflix.personne');

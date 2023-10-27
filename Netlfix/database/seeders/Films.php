@@ -21,6 +21,8 @@ class Films extends Seeder
                 'duree' => 128,
                 'annee' => '2023',
                 'realisateur' => '1',
+                //'realisateur_id' = 
+                //'producteur_id' = 
                 'producteur' => '1',
                 'lienFilm' => 'Lien',
                 'pochette' => 'https://fr.web.img4.acsta.net/c_310_420/pictures/23/08/28/10/29/4138047.jpg',
@@ -32,7 +34,7 @@ class Films extends Seeder
             ],
             [
                 'id' => 2,
-                'titre' => 'KILLERS OF THE FLOWER MOON',
+                'titre' => 'Killer of the flower moon',
                 'resume' => 'description',
                 'duree' => 206,
                 'annee' => '2023',

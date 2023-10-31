@@ -18,10 +18,6 @@ return new class extends Migration
             $table->text('resume')->nullable();
             $table->integer('duree');
             $table->year('annee');
-            $table->unsignedBigInteger( 'realisateur');
-            $table->foreign('realisateur')->references('id')->on('personnes');
-            $table->unsignedBigInteger( 'producteur');
-            $table->foreign('producteur')->references('id')->on('personnes');
             $table->string('lienFilm', 500);
             $table->string('pochette', 1000);
             $table->string('type', 30);
@@ -29,8 +25,8 @@ return new class extends Migration
             $table->double('cote');
             $table->string('rating', 50);
             $table->timestamps();
-            //$table->foreignId('producteur_id')->constrained('personnes');
-            //$table->foreignId('realisateur_id')->constrained('personnes');
+            $table->foreignId('producteur_id')->constrained('personnes');
+            $table->foreignId('realisateur_id')->constrained('personnes');
         });
     }
 

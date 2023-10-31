@@ -9,27 +9,35 @@
 </a>
 @endsection
 @section('contenu')
+
+@section('searchBar')
+<form action="" class="search-box">
+    <!--input-->
+    <input type="text" name="search" placeholder="Search Movie" class="search-input" required />
+    <!--btn-->
+    <button type="submit">
+        <i class="fas fa-search"></i>
+    </button>
+</form>
+@endsection
+
 <!--==Scroll-Progress-bar=========================-->
 <div id="progress">
     <span id="progress-value"></span>
 </div>
 <!--==Navigation===================================-->
-
 <section id="latest">
     <!--heading-------->
     <div class="latest-heading">
         <h1>Thriller</h1>
     </div>
-
     <div class="post-container">
-
-
         @if (count($filmsThriller))
         @foreach($filmsThriller as $filmThriller)
 
-        <div class="post-box" >
+        <div class="post-box">
             <a href="{{ route('film.show', [$filmThriller]) }}">
-            <!--img-->
+                <!--img-->
                 <div class="post-img">
                     <img alt="" src="{{$filmThriller->pochette}}" />
                 </div>

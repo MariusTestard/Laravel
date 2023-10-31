@@ -39,14 +39,8 @@
             <li><a href="#">Contact</a></li>
         </ul>
         <!--Search-box------------->
-        <form action="" class="search-box">
-            <!--input-->
-            <input type="text" name="search" placeholder="Search Movie" class="search-input" required />
-            <!--btn-->
-            <button type="submit">
-                <i class="fas fa-search"></i>
-            </button>
-        </form>
+        @yield('searchBar')
+        
     </nav>
 
 

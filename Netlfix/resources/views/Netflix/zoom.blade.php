@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'MHD - ZOOM Film')
+@section('title', 'MHD - ZOOM Personne')
 
 @section('logo')
 <a href="#" class="logo">
-    Films<span>.hd</span>
+    Acteurs<span>.hd</span>
 </a>
 @endsection
 
@@ -22,7 +22,7 @@
 <section class="movie-banner">
     <!--==img==================================-->
     <div class="m-banner-img">
-        <img alt="" src="{{ $film->bannerLien }}">
+        <img alt="" src="{{ $personne->photo }}">
     </div>
     <!--content================================-->
     <div class="banner-container">
@@ -33,41 +33,30 @@
             <div class="title-top">
                 <!--title----->
                 <div class="movie-title">
-                    <h1>{{ $film->titre }}</h1>
+                    <h1>{{$personne->prenom}} {{$personne->nom}}</h1>
                 </div>
                 <!--more-about-movie-->
                 <div class="more-about-movie">
-                    <span class="quality">Full HD</span>
-                    <div class="rating">
-                        8.2 <img alt="imbd" src="/images/IMDb-icon.png">
-                    </div>
-                    <span>{{ $film->annee }}</span>
-                    <span>{{ $film->duree }}min</span>
+
+                    <span>{{ $personne->date }}</span>
+
                 </div>
                 <!--language--------->
-                <div class="language">
-                    <span>English</span>
-                </div>
+
             </div>
             <!--Title-botttom==========================-->
             <div class="title-bottom">
                 <!--category------->
                 <div class="category">
-                    <strong>Category</strong><br />
-                    <a href="#">{{ $film->type }}</a> <!-- ,<a href="#">Mistery</a>,<a href="#">Thriller</a> -->
+                    <strong>Rôle</strong><br />
+                    <a>{{ $personne->rolePrincipal }}</a> <!-- ,<a href="#">Mistery</a>,<a href="#">Thriller</a> -->
                 </div>
                 <!--trailer-btn---->
-                <a href="{{ $film->lienFilm }}" class="watch-btn" target="_blank">Watch Trailer</a>
+                <a href="{{ $personne->wikiLien }}" class="watch-btn" target="_blank">Wikipedia</a>
             </div>
         </div>
         <!--play-btn******************************--->
-        <div class="play-btn-container">
-            <div class="play-btn">
-                <a href="javascript:void">
-                    <i class="fas fa-play"></i>
-                </a>
-            </div>
-        </div>
+
         <!--Video/full-Movie***************************-->
         <div id="play" class="play">
             <!--close-btn--->
@@ -85,43 +74,45 @@
 </section>
 <!--Banner-end------------->
 <!--details=====================================-->
-<section class="movie-details">
-    <strong>{{ $film->titre }}</strong>
-    <p>{{ $film->resume }}</p>
-</section>
+
 <!--==ScreenShots===============================-->
 <section class="screenshots">
-    <strong>Réalisateur</strong>
+    <strong>Apparaît&nbsp;&nbsp;&nbsp;&nbsp;dans</strong>
     <!--screenshots-container----------->
     <div class="screen-s-container">
 
-    <img alt="" src="{{ $film->realisateur->photo }}">
-
-    </div>
-   
-</section>
-
-<section class="screenshots">
-    <strong>Producteur</strong>
-    <!--screenshots-container----------->
-    <div class="screen-s-container">
-
-    <img alt="" src="{{ $film->producteur->photo }}">
-
-    </div>
-   
-</section>
-
-<section class="screenshots">
-    <strong>Acteurs</strong>
-    <!--screenshots-container----------->
-    <div class="screen-s-container">
-
-    @foreach($film->acteurs as $acteur)
-    <img alt="" src="{{ $acteur->photo }}">
+    @foreach($personne->filmsDedans as $film)
+    <img alt="" src="{{ $film->pochette }}">
     @endforeach
 
     </div>
+   
+</section>
+
+<section class="screenshots">
+    <strong>Films&nbsp;&nbsp;&nbsp;&nbsp;produits</strong>
+    <!--screenshots-container----------->
+    <div class="screen-s-container">
+
+    @foreach($personne->filmsProduits as $film)
+    <img alt="" src="{{ $film->pochette }}">
+    @endforeach
+
+    </div>
+   
+</section>
+
+<section class="screenshots">
+    <strong>Films&nbsp;&nbsp;&nbsp;&nbsp;réalisés</strong>
+    <!--screenshots-container----------->
+    <div class="screen-s-container">
+
+    @foreach($personne->filmsRealises as $film)
+    <img alt="" src="{{ $film->pochette }}">
+    @endforeach
+
+    </div>
+   
 </section>
 <!--Download====================================-->
 <!--

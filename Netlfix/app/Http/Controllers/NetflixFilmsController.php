@@ -12,7 +12,6 @@ class NetflixFilmsController extends Controller
      */
     public function index()
     {
-
         $filmsHorror = Film::where('type', '=', 'Horror')->get();
         $filmsThriller = Film::where('type', '=', 'Thriller')->get();
         $filmsMystery = Film::where('type', '=', 'Mystery')->get();

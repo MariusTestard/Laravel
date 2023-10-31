@@ -36,36 +36,38 @@
         @foreach($filmsThriller as $filmThriller)
 
         <div class="post-box">
-            <a href="{{ route('film.show', [$filmThriller]) }}">
-                <!--img-->
-                <div class="post-img">
-                    <img alt="" src="{{$filmThriller->pochette}}" />
+
+            <!--img-->
+            <div class="post-img">
+                <img alt="" src="{{$filmThriller->pochette}}" />
+            </div>
+
+            <!--text---------->
+            <a class="zoomfilm" href="{{ route('film.show', [$filmThriller]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">Full HD</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span>{{$filmThriller->annee}}</span>
+                            <a>{{$filmThriller->titre}}</a>
+                        </div>
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+                                <a>{{$filmThriller->type}}</a>
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$filmThriller->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </a>
-            <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">Full HD</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span>{{$filmThriller->annee}}</span>
-                        <a href="#">{{$filmThriller->titre}}</a>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
-                            <a href="#">{{$filmThriller->type}}</a>
-                        </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$filmThriller->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         @endforeach
         @else
@@ -88,29 +90,31 @@
                 <img alt="" src="{{$filmHorror->pochette}}" />
             </div>
             <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">Full HD</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span>{{$filmHorror->annee}}</span>
-                        <a href="#">{{$filmHorror->titre}}</a>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
-                            <a href="#">{{$filmHorror->type}}</a>
+            <a class="zoomfilm" href="{{ route('film.show', [$filmHorror]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">Full HD</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span>{{$filmHorror->annee}}</span>
+                            <a>{{$filmHorror->titre}}</a>
                         </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$filmHorror->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+                                <a>{{$filmHorror->type}}</a>
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$filmHorror->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
         @else
@@ -133,29 +137,31 @@
                 <img alt="" src="{{$filmMystery->pochette}}" />
             </div>
             <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">Full HD</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span>{{$filmMystery->annee}}</span>
-                        <a href="#">{{$filmMystery->titre}}</a>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
-                            <a href="#">{{$filmMystery->type}}</a>
+            <a class="zoomfilm" href="{{ route('film.show', [$filmMystery]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">Full HD</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span>{{$filmMystery->annee}}</span>
+                            <a>{{$filmMystery->titre}}</a>
                         </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$filmMystery->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+                                <a>{{$filmMystery->type}}</a>
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$filmMystery->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
         @else
@@ -181,29 +187,31 @@
                 <img alt="" src="{{$filmMostPop->pochette}}" />
             </div>
             <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">Full HD</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span>{{$filmMostPop->annee}}</span>
-                        <a href="#">{{$filmMostPop->titre}}</a>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
-                            <a href="#">{{$filmMostPop->type}}</a>
+            <a class="zoomfilm" href="{{ route('film.show', [$filmMostPop]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">Full HD</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span>{{$filmMostPop->annee}}</span>
+                            <a>{{$filmMostPop->titre}}</a>
                         </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$filmMostPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+                                <a>{{$filmMostPop->type}}</a>
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$filmMostPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
         @else
@@ -228,29 +236,31 @@
                 <img alt="" src="{{$filmLeastPop->pochette}}" />
             </div>
             <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">Full HD</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span>{{$filmLeastPop->annee}}</span>
-                        <a href="#">{{$filmLeastPop->titre}}</a>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
-                            <a href="#">{{$filmLeastPop->type}}</a>
+            <a class="zoomfilm" href="{{ route('film.show', [$filmLeastPop]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">Full HD</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span>{{$filmLeastPop->annee}}</span>
+                            <a>{{$filmLeastPop->titre}}</a>
                         </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$filmLeastPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+                                <a>{{$filmLeastPop->type}}</a>
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$filmLeastPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
         @else

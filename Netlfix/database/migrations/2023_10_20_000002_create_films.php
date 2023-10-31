@@ -24,6 +24,7 @@ return new class extends Migration
             $table->string('brand', 50);
             $table->double('cote');
             $table->string('rating', 50);
+            $table->string('bannerLien', 1000);
             $table->timestamps();
             $table->foreignId('producteur_id')->constrained('personnes');
             $table->foreignId('realisateur_id')->constrained('personnes');

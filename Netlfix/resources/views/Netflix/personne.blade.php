@@ -21,8 +21,6 @@
 </form>
 @endsection
 
-
-
 <!--==Scroll-Progress-bar=========================-->
 <div id="progress">
     <span id="progress-value"></span>
@@ -36,8 +34,6 @@
     </div>
 
     <div class="post-container">
-
-
         @if (count($personnesVieux))
         @foreach($personnesVieux as $personneVieux)
         <div class="post-box">
@@ -46,29 +42,31 @@
                 <img alt="" src="{{$personneVieux->photo}}" />
             </div>
             <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">{{$personneVieux->prenom}} {{$personneVieux->nom}}</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span></span>
-                        <a href="#">{{$personneVieux->rolePrincipal}}</a>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
-
+            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneVieux]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">{{$personneVieux->prenom}} {{$personneVieux->nom}}</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span></span>
+                            <a href="#">{{$personneVieux->rolePrincipal}}</a>
                         </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$personneVieux->date}}
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$personneVieux->date}}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
         @else
@@ -81,8 +79,6 @@
     </div>
 
     <div class="post-container">
-
-
         @if (count($personnesJeune))
         @foreach($personnesJeune as $personneJeune)
         <div class="post-box">
@@ -91,29 +87,31 @@
                 <img alt="" src="{{$personneJeune->photo}}" />
             </div>
             <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">{{$personneJeune->prenom}} {{$personneJeune->nom}}</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span></span>
-                        <a href="#">{{$personneJeune->rolePrincipal}}</a>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
-
+            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneJeune]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">{{$personneJeune->prenom}} {{$personneJeune->nom}}</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span></span>
+                            <a href="#">{{$personneJeune->rolePrincipal}}</a>
                         </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$personneJeune->date}}
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$personneJeune->date}}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
         @else
@@ -121,13 +119,11 @@
         @endif
     </div>
 
-
     <div class="latest-heading">
         <h1>Acteurs</h1>
     </div>
+
     <div class="post-container">
-
-
         @if (count($personnesActeur))
         @foreach($personnesActeur as $personneActeur)
         <div class="post-box">
@@ -136,29 +132,31 @@
                 <img alt="" src="{{$personneActeur->photo}}" />
             </div>
             <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">{{$personneActeur->prenom}} {{$personneActeur->nom}}</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span></span>
-                        <a href="#">{{$personneActeur->rolePrincipal}}</a>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
-
+            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneActeur]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">{{$personneActeur->prenom}} {{$personneActeur->nom}}</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span></span>
+                            <a href="#">{{$personneActeur->rolePrincipal}}</a>
                         </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$personneActeur->date}}
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$personneActeur->date}}
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
         @else
@@ -166,16 +164,11 @@
         @endif
     </div>
 
-
-
-
     <div class="latest-heading">
         <h1>Réalisateurs</h1>
     </div>
 
     <div class="post-container">
-
-
         @if (count($personnesRealisateur))
         @foreach($personnesRealisateur as $personneRealisateur)
         <div class="post-box">
@@ -184,27 +177,29 @@
                 <img alt="" src="{{$personneRealisateur->photo}}" />
             </div>
             <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">{{$personneRealisateur->prenom}} {{$personneRealisateur->nom}}</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span>{{$personneRealisateur->rolePrincipal}}</span>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
+            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneRealisateur]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">{{$personneRealisateur->prenom}} {{$personneRealisateur->nom}}</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span>{{$personneRealisateur->rolePrincipal}}</span>
                         </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$personneRealisateur->date}}/>
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$personneRealisateur->date}}/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
         @else
@@ -212,15 +207,11 @@
         @endif
     </div>
 
-
-
     <div class="latest-heading">
         <h1>Producteurs</h1>
     </div>
 
     <div class="post-container">
-
-
         @if (count($personnesProducteur))
         @foreach($personnesProducteur as $personneProducteur)
         <div class="post-box">
@@ -229,37 +220,38 @@
                 <img alt="" src="{{$personneProducteur->photo}}" />
             </div>
             <!--text---------->
-            <div class="main-slider-text">
-                <!--quality----->
-                <span class="quality">{{$personneProducteur->personne}} {{$personneProducteur->nom}}</span>
-                <!--bottom-text-->
-                <div class="bottom-text">
-                    <!--name----->
-                    <div class="movie-name">
-                        <span></span>
-                        <a href="#">{{$personneProducteur->rolePrincipal}}</a>
-                    </div>
-                    <!--Category-and-rating---->
-                    <div class="category-rating">
-                        <!--category-->
-                        <div class="category">
-
+            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneProducteur]) }}">
+                <div class="main-slider-text">
+                    <!--quality----->
+                    <span class="quality">{{$personneProducteur->personne}} {{$personneProducteur->nom}}</span>
+                    <!--bottom-text-->
+                    <div class="bottom-text">
+                        <!--name----->
+                        <div class="movie-name">
+                            <span></span>
+                            <a href="#">{{$personneProducteur->rolePrincipal}}</a>
                         </div>
-                        <!--rating--->
-                        <div class="rating">
-                            {{$personneProducteur->date}}/>
+                        <!--Category-and-rating---->
+                        <div class="category-rating">
+                            <!--category-->
+                            <div class="category">
+
+                            </div>
+                            <!--rating--->
+                            <div class="rating">
+                                {{$personneProducteur->date}}/>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
         @endforeach
         @else
         <h1>Il n'y a pas de films</h1>
         @endif
     </div>
-
-
+    
     <!--container-end--->
     <!--page-number=====================-->
     <div class="page-number">

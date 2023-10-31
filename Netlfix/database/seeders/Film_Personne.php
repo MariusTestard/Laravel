@@ -17,8 +17,8 @@ class Film_Personne extends Seeder
         DB::table('film_personne')->insert([
             [
                 'id' => 1,
-                'film_id' => 1,
-                'personne_id' => 1,
+                'film_id' => 5,
+                'personne_id' => 26,
                 'created_at' => '2018-01-11 10:16:32',
             ],
             [
@@ -41,7 +41,7 @@ class Film_Personne extends Seeder
             ],
             [
                 'id' => 5,
-                'film_id' => 1,
+                'film_id' => 3,
                 'personne_id' => 4,
                 'created_at' => '2018-01-11 10:16:32',
             ],
@@ -60,7 +60,7 @@ class Film_Personne extends Seeder
             [
                 'id' => 8,
                 'film_id' => 2,
-                'personne_id' => 10,
+                'personne_id' => 2,
                 'created_at' => '2018-01-11 10:16:32',
             ],
             [
@@ -72,7 +72,37 @@ class Film_Personne extends Seeder
             [
                 'id' => 10,
                 'film_id' => 5,
-                'personne_id' => 10,
+                'personne_id' => 25,
+                'created_at' => '2018-01-11 10:16:32',
+            ],
+            [
+                'id' => 11,
+                'film_id' => 3,
+                'personne_id' => 8,
+                'created_at' => '2018-01-11 10:16:32',
+            ],
+            [
+                'id' => 12,
+                'film_id' => 1,
+                'personne_id' => 13,
+                'created_at' => '2018-01-11 10:16:32',
+            ],
+            [
+                'id' => 13,
+                'film_id' => 1,
+                'personne_id' => 14,
+                'created_at' => '2018-01-11 10:16:32',
+            ],
+            [
+                'id' => 14,
+                'film_id' => 4,
+                'personne_id' => 22,
+                'created_at' => '2018-01-11 10:16:32',
+            ],
+            [
+                'id' => 15,
+                'film_id' => 4,
+                'personne_id' => 23,
                 'created_at' => '2018-01-11 10:16:32',
             ],
         ]);

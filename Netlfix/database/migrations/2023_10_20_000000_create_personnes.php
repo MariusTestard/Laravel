@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->string('photo', 500);
             $table->string('rolePrincipal',50);
+            $table->string('wikiLien', 200);
             $table->timestamps();
         });
     }

@@ -179,7 +179,7 @@ class Personnes extends Seeder
                 'prenom' => 'Gareth',
                 'nom' => 'Edwards',
                 'date' => '1975-06-01',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Gareth_Edwards_by_Gage_Skidmore.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/7/74/Gareth_Edwards_by_Gage_Skidmore.jpg',
                 'rolePrincipal' => 'Réalisateur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Gareth_Edwards',
                 'created_at' => '2023-10-31 15:45:00'
@@ -189,7 +189,7 @@ class Personnes extends Seeder
                 'prenom' => 'Arnon',
                 'nom' => 'Milchan',
                 'date' => '1944-12-06',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Arnon_Milchan.jpg',
+                'photo' => 'https://static.hollywoodreporter.com/sites/default/files/2013/12/Arnon_Milchan.jpg',
                 'rolePrincipal' => 'Producteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Arnon_Milchan',
                 'created_at' => '2023-10-31 16:30:00'
@@ -209,7 +209,7 @@ class Personnes extends Seeder
                 'prenom' => 'Robert',
                 'nom' => 'Zemeckis',
                 'date' => '1952-05-14',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Robert_Zemeckis_Deauville_2013.jpg',
+                'photo' => 'https://th.bing.com/th/id/R.9a5e4c4e90644fafd09ff3e812f1339a?rik=5SqRvM60ZIx7Vw&riu=http%3a%2f%2ffr.web.img6.acsta.net%2fpictures%2f16%2f11%2f10%2f15%2f18%2f427241.jpg&ehk=Rx1pyqhdM9CuO8PEmGezNi7AeBxZCyUmMpSXrKD7sMY%3d&risl=&pid=ImgRaw&r=0',
                 'rolePrincipal' => 'Réalisateur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Robert_Zemeckis',
                 'created_at' => '2023-10-31 19:15:00'
@@ -219,7 +219,7 @@ class Personnes extends Seeder
                 'prenom' => 'Steve',
                 'nom' => 'Tisch',
                 'date' => '1949-02-14',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Steve_Tisch.jpg',
+                'photo' => 'https://th.bing.com/th/id/OIP.lcU2BBbPQYmcsR4VVwPxEAHaJi?pid=ImgDet&rs=1',
                 'rolePrincipal' => 'Producteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Steve_Tisch',
                 'created_at' => '2023-10-31 20:00:00'
@@ -229,7 +229,7 @@ class Personnes extends Seeder
                 'prenom' => 'Tom',
                 'nom' => 'Hanks',
                 'date' => '1956-07-09',
-                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Tom_Hanks_-_2019.jpg/220px-Tom_Hanks_-_2019.jpg',
+                'photo' => 'https://image.tmdb.org/t/p/original/xndWFsBlClOJFRdhSt4NBwiPq2o.jpg',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://en.wikipedia.org/wiki/Tom_Hanks',
                 'created_at' => '2023-10-31 21:15:00'
@@ -239,7 +239,7 @@ class Personnes extends Seeder
                 'prenom' => 'Robin',
                 'nom' => 'Wright',
                 'date' => '1966-04-08',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Robin_Wright_(28516108647).jpg',
+                'photo' => 'https://th.bing.com/th/id/OIP.wIfqe1RInrkd6SAIqP-MkwHaLH?pid=ImgDet&rs=1',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Robin_Wright',
                 'created_at' => '2023-10-31 22:30:00'
@@ -304,13 +304,12 @@ class Personnes extends Seeder
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Michael_Clarke_Duncan',
                 'created_at' => '2023-10-31 20:15:00'
             ],
-            // producteur et acteur
             [
                 'id' => 30,
                 'prenom' => 'Henry',
                 'nom' => 'Fonda',
                 'date' => '1905-05-16',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Henry_Fonda.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Henry_Fonda_in_Warlock.jpg/440px-Henry_Fonda_in_Warlock.jpg',
                 'rolePrincipal' => 'Producteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Henry_Fonda',
                 'created_at' => '2023-10-31 20:30:00'
@@ -320,7 +319,7 @@ class Personnes extends Seeder
                 'prenom' => 'Sidney',
                 'nom' => 'Lumet',
                 'date' => '1924-06-25',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Sidney_Lumet_Ind.jpg',
+                'photo' => 'https://i.pinimg.com/originals/4a/77/4a/4a774a72f70d396f86adf492a1d565c7.jpg',
                 'rolePrincipal' => 'Réalisateur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Sidney_Lumet',
                 'created_at' => '2023-10-31 20:45:00'
@@ -330,7 +329,7 @@ class Personnes extends Seeder
                 'prenom' => 'Lee J.',
                 'nom' => 'Cobb',
                 'date' => '1911-12-08',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Lee_J_Cobb_-_portrait.jpg',
+                'photo' => 'https://www.virtual-history.com/movie/photo/pr25/large/lee_j_cobb.jpg',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Lee_J._Cobb',
                 'created_at' => '2023-10-31 20:00:00'
@@ -340,7 +339,7 @@ class Personnes extends Seeder
                 'prenom' => 'Albert S.',
                 'nom' => 'Ruddy',
                 'date' => '1930-03-28',
-                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Albert_S_Ruddy_and_Sylvester_Stallone_crop.jpg/220px-Albert_S_Ruddy_and_Sylvester_Stallone_crop.jpg',
+                'photo' => 'https://m.media-amazon.com/images/M/MV5BMTkwNzY5NjQwMF5BMl5BanBnXkFtZTgwNTUzNzMwMzI@._V1_.jpg',
                 'rolePrincipal' => 'Producteur',
                 'wikiLien' => 'https://en.wikipedia.org/wiki/Albert_S._Ruddy',
                 'created_at' => '2023-10-31 20:15:00'
@@ -350,18 +349,17 @@ class Personnes extends Seeder
                 'prenom' => 'Francis Ford',
                 'nom' => 'Coppola',
                 'date' => '1939-04-07',
-                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Francis_Ford_Coppola_2011_CC.jpg/220px-Francis_Ford_Coppola_2011_CC.jpg',
+                'photo' => 'https://th.bing.com/th/id/R.d92181fda58ca0be6df2946f617f2dd4?rik=ctFgoTWAJD1bXw&pid=ImgRaw&r=0',
                 'rolePrincipal' => 'Réalisateur',
                 'wikiLien' => 'https://en.wikipedia.org/wiki/Francis_Ford_Coppola',
                 'created_at' => '2023-10-31 20:30:00'
             ],
-            // Marlon Brando acteur Parrain et Al Pacino
             [
                 'id' => 35,
                 'prenom' => 'Niki',
                 'nom' => 'Marvin',
                 'date' => '1939-04-07',
-                'photo' => 'https://th.bing.com/th/id/OIP.lfrBq9RkLkxRALQ-uENcqAHaE7?pid=ImgDet&w=474&h=315&rs=1',
+                'photo' => 'https://th.bing.com/th/id/OIP.bICzlt9162wIvo1CsY1qjAAAAA?pid=ImgDet&rs=1',
                 'rolePrincipal' => 'Producteur',
                 'wikiLien' => 'https://en.wikipedia.org/wiki/Francis_Ford_Coppola',
                 'created_at' => '2023-10-31 20:30:00'

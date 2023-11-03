@@ -633,6 +633,24 @@ footer .logo{
     letter-spacing: 1px;
     transition: all ease 0.3s;
 }
+.create-btn{
+    width: 220px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #e70634;
+    border: 1px solid #ffffff2c;
+    border-radius: 3px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: #ffffff;
+    letter-spacing: 1px;
+    transition: all ease 0.3s;
+    margin-bottom: 20px;
+    margin: 30px auto;
+}
+
 .watch-btn:hover{
     background-color: #e70634;
     transition: all ease 0.3s;
@@ -814,6 +832,12 @@ footer .logo{
         margin-top: 20px;
     }
 }
+@media(max-width:1000px){
+    .create-btn{
+        margin-top: 20px;
+    }
+}
+
 @media(max-width:900px){
     .screenshots,
     .download-container{

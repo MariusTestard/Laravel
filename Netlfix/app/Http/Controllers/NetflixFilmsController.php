@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Film;
+use Illuminate\Support\Facades\Log;
 
 class NetflixFilmsController extends Controller
 {
@@ -25,7 +26,7 @@ class NetflixFilmsController extends Controller
      */
     public function create()
     {
-        //
+        return View('Netflix.createFilm');
     }
 
     /**
@@ -33,7 +34,17 @@ class NetflixFilmsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($acteur);
+        // Log::debug($acteur);
+        try {
+            $personne = new Film($request->all());
+            $personne->save();
+        }
+
+        catch (\Throwable $e){
+            Log::debug($e);
+        }
+        return redirect()->route('netflix.index');
     }
 
     /**

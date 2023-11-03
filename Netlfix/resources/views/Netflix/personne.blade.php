@@ -11,7 +11,7 @@
 @section('contenu')
 
 @section('searchBar')
-<form action="" class="search-box">
+<form class="search-box">
     <!--input-->
     <input type="text" name="search" placeholder="Search Person" class="search-input" required />
     <!--btn-->
@@ -26,7 +26,7 @@
     <span id="progress-value"></span>
 </div>
 <!--==Navigation===================================-->
-
+<a href="{{ route('personnes.create') }}" class="create-btn">Create</a>
 <section id="latest">
     <!--heading-------->
     <div class="latest-heading">

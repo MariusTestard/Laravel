@@ -28,6 +28,8 @@
 <!--==Navigation===================================-->
 <section id="latest">
     <!--heading-------->
+    <a href="{{ route('films.create') }}" class="create-btn">Create</a>
+
     <div class="latest-heading">
         <h1>Thriller</h1>
     </div>

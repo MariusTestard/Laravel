@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\PersonneRequest;
 use Illuminate\Http\Request;
 use App\Models\Personne;
+use Illuminate\Support\Facades\Log;
 
 class NetflixPersonnesController extends Controller
 {
@@ -25,15 +27,27 @@ class NetflixPersonnesController extends Controller
      */
     public function create()
     {
-        //
+        return View('Netflix.createPerson');
     }
 
     /**
      * Store a newly created resource in storage.
      */
+    
+    // ActeurRequset en paramètre
     public function store(Request $request)
     {
-        //
+        // dd($acteur);
+        // Log::debug($acteur);
+        try {
+            $personne = new Personne($request->all());
+            $personne->save();
+        }
+
+        catch (\Throwable $e){
+            Log::debug($e);
+        }
+        return redirect()->route('netflix.personne');
     }
 
     /**

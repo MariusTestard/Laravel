@@ -105,6 +105,30 @@ class Film_Personne extends Seeder
                 'personne_id' => 23,
                 'created_at' => '2018-01-11 10:16:32',
             ],
+            [
+                'id' => 16,
+                'film_id' => 7,
+                'personne_id' => 30,
+                'created_at' => '2018-01-11 10:16:32',
+            ],
+            [
+                'id' => 17,
+                'film_id' => 7,
+                'personne_id' => 32,
+                'created_at' => '2018-01-11 10:16:32',
+            ],
+            [
+                'id' => 18,
+                'film_id' => 8,
+                'personne_id' => 10,
+                'created_at' => '2018-01-11 10:16:32',
+            ],
+            [
+                'id' => 19,
+                'film_id' => 8,
+                'personne_id' => 1,
+                'created_at' => '2018-01-11 10:16:32',
+            ]
         ]);
     }
 }

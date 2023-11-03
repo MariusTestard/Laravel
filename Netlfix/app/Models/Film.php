@@ -9,6 +9,7 @@ class Film extends Model
 {
     protected $table = 'Films';
     use HasFactory;
+    protected $fillable = ['titre', 'resume', 'duree', 'annee', 'lienFilm', 'pochette', 'type', 'brand', 'cote', 'rating', 'bannerLien'];
 
     // belongsTo (à juste 1)
     // hasMany (est dans plusieurs)

@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title')</title>
-    <link rel="stylesheet" href="{{asset('css/style.css')}}" />
-    <link rel="shortcut icon" href="{{asset('images/fav-icon.png')}}" />
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
+    <link rel="shortcut icon" href="{{ asset('images/fav-icon.png') }}" />
     <!--==Import-poppins-font====================-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -23,6 +23,8 @@
 
 <body> 
     <!-- HEADER -->
+
+  
     <nav class="navigation">
         <!--menu-btn--------------->
         <input type="checkbox" class="menu-btn" id="menu-btn">

@@ -81,10 +81,13 @@
     <!--screenshots-container----------->
     <div class="screen-s-container">
 
+    @if (count($personne->filmsDedans))
     @foreach($personne->filmsDedans as $film)
     <img alt="" src="{{ $film->pochette }}">
     @endforeach
-
+    @else
+    Cette personne n'apparaît dans aucun film
+    @endif
     </div>
    
 </section>
@@ -94,10 +97,13 @@
     <!--screenshots-container----------->
     <div class="screen-s-container">
 
+    @if (count($personne->filmsProduits))
     @foreach($personne->filmsProduits as $film)
     <img alt="" src="{{ $film->pochette }}">
     @endforeach
-
+    @else
+    Cette personne n'a produit aucun film
+    @endif
     </div>
    
 </section>
@@ -107,10 +113,13 @@
     <!--screenshots-container----------->
     <div class="screen-s-container">
 
+    @if (count($personne->filmsRealises))
     @foreach($personne->filmsRealises as $film)
     <img alt="" src="{{ $film->pochette }}">
     @endforeach
-
+    @else
+    Cette personne n'a réalisé aucun film
+    @endif
     </div>
    
 </section>

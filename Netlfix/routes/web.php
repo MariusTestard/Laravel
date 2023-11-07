@@ -48,9 +48,24 @@ Route::post('/filmsCreate',
 
 Route::get(
     '/films/{film}',
-
     [NetflixFilmsController::class, 'show'])->name('film.show');
     
 Route::get(
     '/personnes/{personne}',
     [NetflixPersonnesController::class, 'show'])->name('personne.zoom');
+
+Route::get(
+    'films/modify/{film}',
+    [NetflixFilmsController::class, 'edit'])->name('netflix.edit');
+
+    Route::patch(
+        'films/modify/{film}',
+        [NetflixFilmsController::class, 'update'])->name('netflix.update');
+
+Route::get(
+    'personnes/modify/{personne}',
+    [NetflixPersonnesController::class, 'edit'])->name('personne.edit');
+
+    Route::patch(
+        'personnes/modify/{personne}',
+        [NetflixPersonnesController::class, 'update'])->name('personne.update');

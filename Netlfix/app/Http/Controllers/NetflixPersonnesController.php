@@ -61,17 +61,30 @@ class NetflixPersonnesController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Personne $personne)
     {
-        //
+        return View('netflix.modifyPersonne', compact('personne'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Personne $personne)
     {
-        //
+        try {
+            $personne->prenom = $request->prenom;
+            $personne->nom = $request->nom;
+            $personne->date = $request->date;
+            $personne->photo = $request->photo;
+            $personne->rolePrincipal = $request->rolePrincipal;
+            $personne->wikiLien = $request->wikiLien;
+            $personne->save();
+        }
+
+        catch (\Throwable $e){
+            Log::debug($e);
+        }
+        return redirect()->route('netflix.personne');
     }
 
     /**

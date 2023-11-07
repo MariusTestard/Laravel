@@ -42,10 +42,16 @@
                 <img alt="" src="{{$personneVieux->photo}}" />
             </div>
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneVieux]) }}">
-                <div class="main-slider-text">
-                    <!--quality----->
+
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
                     <span class="quality">{{$personneVieux->prenom}} {{$personneVieux->nom}}</span>
+                    <a href="{{ route('personne.edit', [$personneVieux]) }}" class="modifygear">⚙️</a>
+                </div>   
+                <a class="zoomfilm" href="{{ route('personne.zoom', [$personneVieux]) }}"></a>
+
+
                     <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->
@@ -87,10 +93,15 @@
                 <img alt="" src="{{$personneJeune->photo}}" />
             </div>
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneJeune]) }}">
                 <div class="main-slider-text">
                     <!--quality----->
-                    <span class="quality">{{$personneJeune->prenom}} {{$personneJeune->nom}}</span>
+                    <div id="topFilm">
+                        <div class="quality">
+                            {{$personneJeune->prenom}} {{$personneJeune->nom}}
+                        </div>
+                        <a href="{{ route('personne.edit', [$personneJeune]) }}" class="modifygear">⚙️</a>
+                    </div>
+                    <a class="zoomfilm" href="{{ route('personne.zoom', [$personneJeune]) }}"></a>
                     <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->
@@ -111,7 +122,6 @@
                         </div>
                     </div>
                 </div>
-            </a>
         </div>
         @endforeach
         @else
@@ -132,11 +142,16 @@
                 <img alt="" src="{{$personneActeur->photo}}" />
             </div>
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneActeur]) }}">
-                <div class="main-slider-text">
-                    <!--quality----->
+           
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
                     <span class="quality">{{$personneActeur->prenom}} {{$personneActeur->nom}}</span>
-                    <!--bottom-text-->
+                    <a href="{{ route('personne.edit', [$personneActeur]) }}" class="modifygear">⚙️</a>
+                </div>   
+                <a class="zoomfilm" href="{{ route('personne.zoom', [$personneActeur]) }}"></a>
+
+                        <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->
                         <div class="movie-name">
@@ -156,7 +171,6 @@
                         </div>
                     </div>
                 </div>
-            </a>
         </div>
         @endforeach
         @else
@@ -177,10 +191,13 @@
                 <img alt="" src="{{$personneRealisateur->photo}}" />
             </div>
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneRealisateur]) }}">
                 <div class="main-slider-text">
                     <!--quality----->
+                    <div id="topFilm">
                     <span class="quality">{{$personneRealisateur->prenom}} {{$personneRealisateur->nom}}</span>
+                        <a href="{{ route('personne.edit', [$personneRealisateur]) }}" class="modifygear">⚙️</a>
+                    </div>
+                    <a class="zoomfilm" href="{{ route('personne.zoom', [$personneRealisateur]) }}"></a>
                     <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->
@@ -194,12 +211,11 @@
                             </div>
                             <!--rating--->
                             <div class="rating">
-                                {{$personneRealisateur->date}}/>
+                                {{$personneRealisateur->date}}
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
         </div>
         @endforeach
         @else
@@ -220,10 +236,15 @@
                 <img alt="" src="{{$personneProducteur->photo}}" />
             </div>
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('personne.zoom', [$personneProducteur]) }}">
-                <div class="main-slider-text">
-                    <!--quality----->
-                    <span class="quality">{{$personneProducteur->personne}} {{$personneProducteur->nom}}</span>
+
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
+                    <span class="quality">{{$personneProducteur->prenom}} {{$personneProducteur->nom}}</span>
+                    <a href="{{ route('personne.edit', [$personneProducteur]) }}" class="modifygear">⚙️</a>
+                </div>   
+                <a class="zoomfilm" href="{{ route('personne.zoom', [$personneProducteur]) }}"></a>
+
                     <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->

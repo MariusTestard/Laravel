@@ -13,6 +13,7 @@ class NetflixFilmsController extends Controller
      */
     public function index()
     {
+        // GET tous les producteurs et réalisateurs  $personnes = Personne->get();
         $filmsHorror = Film::where('type', '=', 'Horror')->get();
         $filmsThriller = Film::where('type', '=', 'Thriller')->get();
         $filmsMystery = Film::where('type', '=', 'Mystery')->get();
@@ -37,8 +38,8 @@ class NetflixFilmsController extends Controller
         // dd($acteur);
         // Log::debug($acteur);
         try {
-            $personne = new Film($request->all());
-            $personne->save();
+            $film = new Film($request->all());
+            $film->save();
         }
 
         catch (\Throwable $e){
@@ -50,25 +51,45 @@ class NetflixFilmsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Film $film)
+    
+    // Envoyé en paramètre tous les producteurs et réalisateurs
+    public function show(Film $film, Personne $personnes)
     {
-        return View('netflix.show', compact('film'));
+        return View('netflix.show', compact('film', 'personnes'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Film $film)
     {
-        //
+        return View('netflix.modifyFilm', compact('film'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Film $film)
     {
-        //
+        try {
+            $film->titre = $request->titre;
+            $film->resume = $request->resume;
+            $film->duree = $request->duree;
+            $film->annee = $request->annee;
+            $film->lienFilm = $request->lienFilm;
+            $film->pochette = $request->pochette;
+            $film->type = $request->type;
+            $film->brand = $request->brand;
+            $film->cote = $request->cote;
+            $film->rating = $request->rating;
+            $film->bannerLien = $request->bannerLien;
+            $film->save();
+        }
+
+        catch (\Throwable $e){
+            Log::debug($e);
+        }
+        return redirect()->route('netflix.index');
     }
 
     /**

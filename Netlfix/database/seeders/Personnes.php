@@ -159,7 +159,7 @@ class Personnes extends Seeder
                 'prenom' => 'Martin',
                 'nom' => 'Scorsese',
                 'date' => '1942-11-17',
-                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Martin_Scorsese_Berlinale_2020.jpg/220px-Martin_Scorsese_Berlinale_2020.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1c/Martin_Scorsese_Berlinale_2010_%28cropped2%29.jpg/220px-Martin_Scorsese_Berlinale_2010_%28cropped2%29.jpg',
                 'rolePrincipal' => 'Réalisateur',
                 'wikiLien' => 'https://en.wikipedia.org/wiki/Martin_Scorsese',
                 'created_at' => '2018-01-11 10:16:32'
@@ -169,7 +169,7 @@ class Personnes extends Seeder
                 'prenom' => 'Dan',
                 'nom' => 'Friedkin',
                 'date' => '1965-02-28',
-                'photo' => 'https://en.wikipedia.org/wiki/File:Dan_Friedkin.jpg',
+                'photo' => 'https://th.bing.com/th/id/R.047bca47a98bcc2a5ff51942a31e6ac6?rik=FfKE%2bMVnzd0oAw&pid=ImgRaw&r=0',
                 'rolePrincipal' => 'Producteur',
                 'wikiLien' => 'https://en.wikipedia.org/wiki/Dan_Friedkin',
                 'created_at' => '2023-10-31 14:30:00'
@@ -199,7 +199,7 @@ class Personnes extends Seeder
                 'prenom' => 'John David',
                 'nom' => 'Washington',
                 'date' => '1984-07-28',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:John_David_Washington_by_Gage_Skidmore.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/JohnDavidWashington.jpg/220px-JohnDavidWashington.jpg',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/John_David_Washington',
                 'created_at' => '2023-10-31 17:45:00'
@@ -249,7 +249,7 @@ class Personnes extends Seeder
                 'prenom' => 'Branko',
                 'nom' => 'Lustig',
                 'date' => '1932-06-10',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Branko_Lustig_2007.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Branko_Lustig_%282009%29-1.jpg/260px-Branko_Lustig_%282009%29-1.jpg',
                 'rolePrincipal' => 'Producteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Branko_Lustig',
                 'created_at' => '2023-10-31 20:00:00'
@@ -259,7 +259,7 @@ class Personnes extends Seeder
                 'prenom' => 'Liam',
                 'nom' => 'Neeson',
                 'date' => '1952-06-07',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Liam_Neeson_-_Berlinale_2020-03-04_(49218340183)_(cropped).jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Liam_Neeson_Deauville_2012.jpg/240px-Liam_Neeson_Deauville_2012.jpg',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Liam_Neeson',
                 'created_at' => '2023-10-31 20:15:00'
@@ -269,7 +269,7 @@ class Personnes extends Seeder
                 'prenom' => 'Ralph',
                 'nom' => 'Fiennes',
                 'date' => '1962-12-22',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Ralph_Fiennes_by_Gage_Skidmore_3.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Ralph_Fiennes_from_%22The_White_Crow%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_%2831747095048%29.jpg/220px-Ralph_Fiennes_from_%22The_White_Crow%22_at_Opening_Ceremony_of_the_Tokyo_International_Film_Festival_2018_%2831747095048%29.jpg',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Ralph_Fiennes',
                 'created_at' => '2023-10-31 20:30:00'
@@ -279,7 +279,7 @@ class Personnes extends Seeder
                 'prenom' => 'Frank',
                 'nom' => 'Darabont',
                 'date' => '1959-01-28',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Frank_Darabont_by_Gage_Skidmore.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Frank_Darabont_at_the_PaleyFest_2011_-_The_Walking_Dead_panel.jpg/260px-Frank_Darabont_at_the_PaleyFest_2011_-_The_Walking_Dead_panel.jpg',
                 'rolePrincipal' => 'Réalisateur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Frank_Darabont',
                 'created_at' => '2023-10-31 20:45:00'
@@ -289,7 +289,7 @@ class Personnes extends Seeder
                 'prenom' => 'David',
                 'nom' => 'Valdes',
                 'date' => '1949-08-06',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:David_Valdes.jpg',
+                'photo' => 'https://images-na.ssl-images-amazon.com/images/M/MV5BMTg1MDcyNzE2Nl5BMl5BanBnXkFtZTcwNTY1OTkxMw@@._V1_UX214_CR0,0,214,317_AL_.jpg',
                 'rolePrincipal' => 'Producteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/David_Valdes',
                 'created_at' => '2023-10-31 20:00:00'
@@ -299,7 +299,7 @@ class Personnes extends Seeder
                 'prenom' => 'Michael Clarke',
                 'nom' => 'Duncan',
                 'date' => '1957-12-10',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Michael_Clarke_Duncan_at_DC_in_2009.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/MClarkeDuncan021109-R106_%2850094589037%29.jpg/220px-MClarkeDuncan021109-R106_%2850094589037%29.jpg',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Michael_Clarke_Duncan',
                 'created_at' => '2023-10-31 20:15:00'
@@ -370,7 +370,7 @@ class Personnes extends Seeder
                 'prenom' => 'Tim',
                 'nom' => 'Robbins',
                 'date' => '1958-10-16',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Tim_Robbins_2012.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/TimRobbins08TIFF.jpg/260px-TimRobbins08TIFF.jpg',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Tim_Robbins',
                 'created_at' => '2023-10-31 20:45:00'
@@ -381,7 +381,7 @@ class Personnes extends Seeder
                 'prenom' => 'Christopher',
                 'nom' => 'Nolan',
                 'date' => '1970-07-30',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Christopher_Nolan_by_Gage_Skidmore.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Christopher_Nolan_Cannes_2018.jpg/220px-Christopher_Nolan_Cannes_2018.jpg',
                 'rolePrincipal' => 'Réalisateur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Christopher_Nolan',
                 'created_at' => '2023-10-31 20:00:00'
@@ -391,7 +391,7 @@ class Personnes extends Seeder
                 'prenom' => 'Lynda',
                 'nom' => 'Obst',
                 'date' => '1950-04-14',
-                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Lynda_Obst.jpg/220px-Lynda_Obst.jpg',
+                'photo' => 'https://th.bing.com/th/id/R.f773f3dfd93326c3d8c150ba36b1ce6c?rik=4pJdq1LCNZgWCA&riu=http%3a%2f%2fwww4.pictures.zimbio.com%2fgi%2fArrivals%2bCritics%2bChoice%2bMovie%2bAwards%2bPart%2bZIv2yAcgrOvx.jpg&ehk=r%2f2EcnAeNKrbhTTALr0TEhdN4746cYKsp3drjooDM%2bU%3d&risl=&pid=ImgRaw&r=0',
                 'rolePrincipal' => 'Producteur',
                 'wikiLien' => 'https://en.wikipedia.org/wiki/Lynda_Obst',
                 'created_at' => '2023-10-31 20:15:00'
@@ -401,7 +401,7 @@ class Personnes extends Seeder
                 'prenom' => 'Matthew',
                 'nom' => 'McConaughey',
                 'date' => '1969-11-04',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Matthew_McConaughey,_Goldene_Kamera_2014_(cropped).jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/bf/Matthew_McConaughey_2019_%2848648344772%29.jpg/240px-Matthew_McConaughey_2019_%2848648344772%29.jpg',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Matthew_McConaughey',
                 'created_at' => '2023-10-31 08:30:00'
@@ -411,7 +411,7 @@ class Personnes extends Seeder
                 'prenom' => 'Anne',
                 'nom' => 'Hathaway',
                 'date' => '1982-11-12',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Anne_Hathaway_in_2017.png',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Anne_Hathaway-68408_%28cropped%29.jpg/220px-Anne_Hathaway-68408_%28cropped%29.jpg',
                 'rolePrincipal' => 'Actrice',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Anne_Hathaway',
                 'created_at' => '2023-10-31 19:45:00'
@@ -422,7 +422,7 @@ class Personnes extends Seeder
                 'prenom' => 'Sturgill',
                 'nom' => 'Simpson',
                 'date' => '1978-06-08',
-                'photo' => 'https://fr.wikipedia.org/wiki/File:Sturgill_Simpson_2016.jpg',
+                'photo' => 'https://th.bing.com/th/id/R.4669ad75639154aa96b332544467391e?rik=rbQztT1XX9BWLg&riu=http%3a%2f%2fwww.fan-lexikon.de%2fmusik%2fsturgill-simpson%2fbilder%2fxl%2fsturgill-simpson-18938.jpg&ehk=103pNe9MMETU%2bqd3um%2bpjtEeWtMmFhUguMtj4KiwdbY%3d&risl=&pid=ImgRaw&r=0',
                 'rolePrincipal' => 'Acteur',
                 'wikiLien' => 'https://fr.wikipedia.org/wiki/Sturgill_Simpson',
                 'created_at' => '2023-10-31 18:30:00'
@@ -433,7 +433,7 @@ class Personnes extends Seeder
                 'prenom' => 'Steven',
                 'nom' => 'Spielberg',
                 'date' => '1946-12-18',
-                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/Steven_Spielberg_by_Gage_Skidmore_2.jpg/220px-Steven_Spielberg_by_Gage_Skidmore_2.jpg',
+                'photo' => 'https://upload.wikimedia.org/wikipedia/commons/thumb/4/4d/MKr25402_Steven_Spielberg_%28Berlinale_2023%29.jpg/260px-MKr25402_Steven_Spielberg_%28Berlinale_2023%29.jpg',
                 'rolePrincipal' => 'Réalisateur',
                 'wikiLien' => 'https://en.wikipedia.org/wiki/Steven_Spielberg',
                 'created_at' => '2023-10-31 23:45:00'

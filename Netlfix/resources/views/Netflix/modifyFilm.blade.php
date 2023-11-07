@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MHD - Create</title>
+    <title>MHD - Modify</title>
     <link rel="shortcut icon" href="{{ asset('images/fav-icon.png') }}" />
     <link rel="stylesheet" href="{{ asset('css/create.css') }}">
     <!--==Import-poppins-font====================-->
@@ -27,67 +27,54 @@
 
     <div class="form-wrapper">
         <h2>Films</h2>
-        <form method="post" action="{{ route('films.store') }}">
+        <form method="post" action="{{ route('netflix.update', $film) }}">
             @csrf
+            @method('Patch')
             <div class="form-control">
                 <label for="titre"></label>
-                <input type="text" id="titre" name="titre" value="{{ old('titre') }}" placeholder="Titre" required>
+                <input type="text" id="titre" name="titre" value="{{ $film->titre }}" placeholder="Titre" required>
             </div>
             <div class="form-control">
                 <label for="resume"></label>
-                <input type="text" id="resume" name="resume" value="{{ old('resume') }}" placeholder="Résumé">
+                <input type="text" id="resume" name="resume" value="{{ $film->resume }}" placeholder="Résumé">
             </div>
             <div class="form-control">
                 <label for="duree"></label>
-                <input type="number" id="duree" name="duree" value="{{ old('duree') }}" placeholder="Durée" required min="0">
+                <input type="number" id="duree" name="duree" value="{{ $film->duree }}" placeholder="Durée" required min="0">
             </div>
             <div class="form-control">
                 <label for="annee"></label>
-                <input type="number" id="annee" name="annee" value="{{ old('annee') }}" placeholder="Année de sortie" required min="1800" max="2100">
+                <input type="number" id="annee" name="annee" value="{{ $film->annee }}" placeholder="Année de sortie" required min="1800" max="2100">
             </div>
             <div class="form-control">
                 <label for="lienFilm"></label>
-                <input type="url" id="lienFilm" name="lienFilm" value="{{ old('lienFilm') }}" placeholder="Lien du film" required>
+                <input type="url" id="lienFilm" name="lienFilm" value="{{ $film->lienFilm }}" placeholder="Lien du film" required>
             </div>
             <div class="form-control">
                 <label for="pochette"></label>
-                <input type="url" id="pochette" name="pochette" value="{{ old('pochette') }}" placeholder="Pochette" required>
+                <input type="url" id="pochette" name="pochette" value="{{ $film->pochette }}" placeholder="Pochette" required>
             </div>
             <div class="form-control">
                 <label for="type"></label>
-                <input type="text" id="type" name="type" value="{{ old('type') }}" placeholder="Type" required>
+                <input type="text" id="type" name="type" value="{{ $film->type }}" placeholder="Type" required>
             </div>
             <div class="form-control">
                 <label for="brand"></label>
-                <input type="text" id="brand" name="brand" value="{{ old('brand') }}" placeholder="Brand" required>
+                <input type="text" id="brand" name="brand" value="{{ $film->brand }}" placeholder="Brand" required>
             </div>
             <div class="form-control">
                 <label for="cote"></label>
-                <input type="text" id="cote" name="cote" value="{{ old('cote') }}" placeholder="Côte" required>
+                <input type="text" id="cote" name="cote" value="{{ $film->cote }}" placeholder="Côte" required>
             </div>
             <div class="form-control">
                 <label for="rating"></label>
-                <input type="text" id="rating" name="rating" value="{{ old('rating') }}" placeholder="Rating" required>
+                <input type="text" id="rating" name="rating" value="{{ $film->rating }}" placeholder="Rating" required>
             </div>
             <div class="form-control">
                 <label for="bannerLien"></label>
-                <input type="text" id="bannerLien" name="bannerLien" value="{{ old('bannerLien') }}" placeholder="Lien de la bannière" required>
+                <input type="text" id="bannerLien" name="bannerLien" value="{{ $film->bannerLien }}" placeholder="Lien de la bannière" required>
             </div>
-
-            <select name="form-control">
-                <option value="Veuillez choisir un producteur..."></option>
-                @foreach($personnes as $personne)
-                    <option value="{{ $personne->id }}" {{ $personne->id == old('producteur_id') ? 'selected' : null }}>
-                        {{ $categorie->description }}
-                    </option>
-                @endforeach
-            </select>
-               
-            
-            
-
-
-            <button type="submit">Create</button>
+            <button type="submit">Modify</button>
             <div class="form-help">
                 <a href="#">Need help?</a>
             </div>

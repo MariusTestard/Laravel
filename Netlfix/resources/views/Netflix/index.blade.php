@@ -45,10 +45,13 @@
             </div>
 
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('film.show', [$filmThriller]) }}">
-                <div class="main-slider-text">
-                    <!--quality----->
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
                     <span class="quality">Full HD</span>
+                    <a href="{{ route('netflix.edit', [$filmThriller]) }}" class="modifygear">⚙️</a>
+                </div>   
+                <a class="zoomfilm" href="{{ route('film.show', [$filmThriller]) }}"></a>
                     <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->
@@ -69,7 +72,6 @@
                         </div>
                     </div>
                 </div>
-            </a>
         </div>
         @endforeach
         @else
@@ -92,10 +94,14 @@
                 <img alt="" src="{{$filmHorror->pochette}}" />
             </div>
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('film.show', [$filmHorror]) }}">
-                <div class="main-slider-text">
-                    <!--quality----->
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
                     <span class="quality">Full HD</span>
+                    <a href="{{ route('netflix.edit', [$filmHorror]) }}" class="modifygear">⚙️</a>
+                </div>   
+                <a class="zoomfilm" href="{{ route('film.show', [$filmHorror]) }}"></a>
+
                     <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->
@@ -139,10 +145,15 @@
                 <img alt="" src="{{$filmMystery->pochette}}" />
             </div>
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('film.show', [$filmMystery]) }}">
-                <div class="main-slider-text">
-                    <!--quality----->
+
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
                     <span class="quality">Full HD</span>
+                    <a href="{{ route('netflix.edit', [$filmMystery]) }}" class="modifygear">⚙️</a>
+                </div>   
+                <a class="zoomfilm" href="{{ route('film.show', [$filmMystery]) }}"></a>
+
                     <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->
@@ -189,10 +200,15 @@
                 <img alt="" src="{{$filmMostPop->pochette}}" />
             </div>
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('film.show', [$filmMostPop]) }}">
-                <div class="main-slider-text">
-                    <!--quality----->
+
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
                     <span class="quality">Full HD</span>
+                    <a href="{{ route('netflix.edit', [$filmMostPop]) }}" class="modifygear">⚙️</a>
+                </div>   
+                <a class="zoomfilm" href="{{ route('film.show', [$filmMostPop]) }}"></a>
+
                     <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->
@@ -238,10 +254,15 @@
                 <img alt="" src="{{$filmLeastPop->pochette}}" />
             </div>
             <!--text---------->
-            <a class="zoomfilm" href="{{ route('film.show', [$filmLeastPop]) }}">
-                <div class="main-slider-text">
-                    <!--quality----->
+
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
                     <span class="quality">Full HD</span>
+                    <a href="{{ route('netflix.edit', [$filmLeastPop]) }}" class="modifygear">⚙️</a>
+                </div>   
+                <a class="zoomfilm" href="{{ route('film.show', [$filmLeastPop]) }}"></a>
+
                     <!--bottom-text-->
                     <div class="bottom-text">
                         <!--name----->

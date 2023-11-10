@@ -48,30 +48,34 @@
                 <div id="topFilm">
                     <span class="quality">{{$personneVieux->prenom}} {{$personneVieux->nom}}</span>
                     <a href="{{ route('personne.edit', [$personneVieux]) }}" class="modifygear">⚙️</a>
-                </div>   
+                </div>
                 <a class="zoomfilm" href="{{ route('personne.zoom', [$personneVieux]) }}"></a>
+                <form method="POST" action="{{ route('personnes.destroy', [$personneVieux->id]) }}">
+                    @csrf
+                    @method('DELETE')
+                    <button class="deleteX">❌</button>
+                </form>
 
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span></span>
+                        <a href="#">{{$personneVieux->rolePrincipal}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
 
-                    <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span></span>
-                            <a href="#">{{$personneVieux->rolePrincipal}}</a>
                         </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
-
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$personneVieux->date}}
-                            </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$personneVieux->date}}
                         </div>
                     </div>
                 </div>
+            </div>
             </a>
         </div>
         @endforeach
@@ -93,35 +97,40 @@
                 <img alt="" src="{{$personneJeune->photo}}" />
             </div>
             <!--text---------->
-                <div class="main-slider-text">
-                    <!--quality----->
-                    <div id="topFilm">
-                        <div class="quality">
-                            {{$personneJeune->prenom}} {{$personneJeune->nom}}
-                        </div>
-                        <a href="{{ route('personne.edit', [$personneJeune]) }}" class="modifygear">⚙️</a>
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
+                    <div class="quality">
+                        {{$personneJeune->prenom}} {{$personneJeune->nom}}
                     </div>
-                    <a class="zoomfilm" href="{{ route('personne.zoom', [$personneJeune]) }}"></a>
-                    <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span></span>
-                            <a href="#">{{$personneJeune->rolePrincipal}}</a>
-                        </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
+                    <a href="{{ route('personne.edit', [$personneJeune]) }}" class="modifygear">⚙️</a>
+                    <form method="POST" action="{{ route('personnes.destroy', [$personneJeune->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="deleteX">❌</button>
+                    </form>
+                </div>
+                <a class="zoomfilm" href="{{ route('personne.zoom', [$personneJeune]) }}"></a>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span></span>
+                        <a href="#">{{$personneJeune->rolePrincipal}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
 
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$personneJeune->date}}
-                            </div>
+                        </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$personneJeune->date}}
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
         @endforeach
         @else
@@ -142,35 +151,40 @@
                 <img alt="" src="{{$personneActeur->photo}}" />
             </div>
             <!--text---------->
-           
+
             <div class="main-slider-text">
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">{{$personneActeur->prenom}} {{$personneActeur->nom}}</span>
                     <a href="{{ route('personne.edit', [$personneActeur]) }}" class="modifygear">⚙️</a>
-                </div>   
+                    <form method="POST" action="{{ route('personnes.destroy', [$personneActeur->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="deleteX">❌</button>
+                    </form>
+                </div>
                 <a class="zoomfilm" href="{{ route('personne.zoom', [$personneActeur]) }}"></a>
 
-                        <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span></span>
-                            <a href="#">{{$personneActeur->rolePrincipal}}</a>
-                        </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span></span>
+                        <a href="#">{{$personneActeur->rolePrincipal}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
 
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$personneActeur->date}}
-                            </div>
+                        </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$personneActeur->date}}
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
         @endforeach
         @else
@@ -191,31 +205,36 @@
                 <img alt="" src="{{$personneRealisateur->photo}}" />
             </div>
             <!--text---------->
-                <div class="main-slider-text">
-                    <!--quality----->
-                    <div id="topFilm">
+            <div class="main-slider-text">
+                <!--quality----->
+                <div id="topFilm">
                     <span class="quality">{{$personneRealisateur->prenom}} {{$personneRealisateur->nom}}</span>
-                        <a href="{{ route('personne.edit', [$personneRealisateur]) }}" class="modifygear">⚙️</a>
+                    <a href="{{ route('personne.edit', [$personneRealisateur]) }}" class="modifygear">⚙️</a>
+                    <form method="POST" action="{{ route('personnes.destroy', [$personneRealisateur->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="deleteX">❌</button>
+                    </form>
+                </div>
+                <a class="zoomfilm" href="{{ route('personne.zoom', [$personneRealisateur]) }}"></a>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$personneRealisateur->rolePrincipal}}</span>
                     </div>
-                    <a class="zoomfilm" href="{{ route('personne.zoom', [$personneRealisateur]) }}"></a>
-                    <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span>{{$personneRealisateur->rolePrincipal}}</span>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
                         </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$personneRealisateur->date}}
-                            </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$personneRealisateur->date}}
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
         @endforeach
         @else
@@ -242,29 +261,34 @@
                 <div id="topFilm">
                     <span class="quality">{{$personneProducteur->prenom}} {{$personneProducteur->nom}}</span>
                     <a href="{{ route('personne.edit', [$personneProducteur]) }}" class="modifygear">⚙️</a>
-                </div>   
+                    <form method="POST" action="{{ route('personnes.destroy', [$personneProducteur->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="deleteX">❌</button>
+                    </form>
+                </div>
                 <a class="zoomfilm" href="{{ route('personne.zoom', [$personneProducteur]) }}"></a>
 
-                    <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span></span>
-                            <a href="#">{{$personneProducteur->rolePrincipal}}</a>
-                        </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span></span>
+                        <a href="#">{{$personneProducteur->rolePrincipal}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
 
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$personneProducteur->date}}/>
-                            </div>
+                        </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$personneProducteur->date}}/>
                         </div>
                     </div>
                 </div>
+            </div>
             </a>
         </div>
         @endforeach
@@ -272,7 +296,7 @@
         <h1>Il n'y a pas de films</h1>
         @endif
     </div>
-    
+
     <!--container-end--->
     <!--page-number=====================-->
     <div class="page-number">

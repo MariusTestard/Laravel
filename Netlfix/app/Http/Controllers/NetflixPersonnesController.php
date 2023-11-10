@@ -90,8 +90,17 @@ class NetflixPersonnesController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        try {
+            $personne = Personne::findOrFail($id);
+            $personne->delete();
+            return redirect()->route('netflix.personne')->with('message', "Supression de " . $personne->nom . " réussi!");
+        }
+        catch(\Throwable $e) {
+            Log::debug($e);
+            return redirect()->route('netflix.personne')->withErrors(["La supression n'a pas fonctionné!"]);
+        }
+            return redirect()->route('netflix.personne');
     }
 }

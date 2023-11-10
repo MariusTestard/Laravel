@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Film;
+use App\Models\FilmPersonne;
+use App\Models\Personne;
 use Illuminate\Support\Facades\Log;
 
 class NetflixFilmsController extends Controller
@@ -27,7 +29,16 @@ class NetflixFilmsController extends Controller
      */
     public function create()
     {
-        return View('Netflix.createFilm');
+        $realisateurs = Personne::where('rolePrincipal', '=', 'Réalisateur')->get();
+        $producteurs = Personne::where('rolePrincipal', '=', 'Producteur')->get();
+        return View('Netflix.createFilm', compact('realisateurs', 'producteurs'));
+    }
+
+    public function createAdd()
+    {
+        $acteurs = Personne::where('rolePrincipal', '=', 'Acteur')->get();
+        $films = Film::all();
+        return View('Netflix.filmAdd', compact('acteurs', 'films'));
     }
 
     /**
@@ -35,13 +46,23 @@ class NetflixFilmsController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($acteur);
-        // Log::debug($acteur);
         try {
             $film = new Film($request->all());
             $film->save();
         }
+        catch (\Throwable $e){
+            Log::debug($e);
+          
+        }
+        return redirect()->route('netflix.index');
+    }
 
+    public function storeAdd(Request $request)
+    {
+        try {
+            $film = new FilmPersonne($request->all());
+            $film->save();
+        }
         catch (\Throwable $e){
             Log::debug($e);
         }
@@ -83,6 +104,8 @@ class NetflixFilmsController extends Controller
             $film->cote = $request->cote;
             $film->rating = $request->rating;
             $film->bannerLien = $request->bannerLien;
+            $film->producteur_id = $request->producteur_id;
+            $film->realisateur_id = $request->realisateur_id;
             $film->save();
         }
 
@@ -95,8 +118,19 @@ class NetflixFilmsController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        try {
+            $film = Film::findOrFail($id);
+            $film->acteurs()->detach();
+
+            $film->delete();
+            return redirect()->route('netflix.index')->with('message', "Supression de " . $film->nom . " réussi!");
+        }
+        catch(\Throwable $e) {
+            Log::debug($e);
+            return redirect()->route('netflix.index')->withErrors(["La supression n'a pas fonctionné!"]);
+        }
+            return redirect()->route('netflix.index');
     }
 }

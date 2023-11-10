@@ -73,20 +73,22 @@
                 <label for="bannerLien"></label>
                 <input type="text" id="bannerLien" name="bannerLien" value="{{ old('bannerLien') }}" placeholder="Lien de la bannière" required>
             </div>
-
-            <select name="form-control">
-                <option value="Veuillez choisir un producteur..."></option>
-                @foreach($personnes as $personne)
-                    <option value="{{ $personne->id }}" {{ $personne->id == old('producteur_id') ? 'selected' : null }}>
-                        {{ $categorie->description }}
-                    </option>
+            <select class="form-control" id="producteur_id" name="producteur_id">
+                <option>Veuillez choisir un producteur...</option>
+                @foreach($producteurs as $producteur)
+                <option value="{{$producteur->id}}" {{$producteur->id == old('producteur_id') ? 'selected' : null }}>
+                    {{ $producteur->prenom }} {{ $producteur->nom }}
+                </option>
                 @endforeach
             </select>
-               
-            
-            
-
-
+            <select class="form-control" id="realisateur_id" name="realisateur_id">
+                <option>Veuillez choisir un réalisateur...</option>
+                @foreach($realisateurs as $realisateur)
+                <option value="{{$realisateur->id }}" {{$producteur->id == old('realisateur_id') ? 'selected' : null }}>
+                    {{ $realisateur->prenom }} {{ $realisateur->nom }}
+                </option>
+                @endforeach
+            </select>
             <button type="submit">Create</button>
             <div class="form-help">
                 <a href="#">Need help?</a>

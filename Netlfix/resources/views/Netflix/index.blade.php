@@ -21,6 +21,17 @@
 </form>
 @endsection
 
+<!-- 
+    PHASE DE TEST, À REVOIR ET FAIRE DES TOASTS EN BOOTSTRAP SI ERREURS
+-->
+@if(isset($errors) && $errors->any())
+<div>
+    @foreach($errors->all() as $error)
+    <p>{{ $error }}</p>
+    @endforeach
+</div>
+@endif
+
 <!--==Scroll-Progress-bar=========================-->
 <div id="progress">
     <span id="progress-value"></span>
@@ -28,7 +39,10 @@
 <!--==Navigation===================================-->
 <section id="latest">
     <!--heading-------->
-    <a href="{{ route('films.create') }}" class="create-btn">Create</a>
+    <div id="buttonsDisplay">
+        <a href="{{ route('films.create') }}" class="create-btn">Create</a>
+        <a href="{{ route('filmsAdd.create') }}" class="create-btn">Add persons</a>
+    </div>
 
     <div class="latest-heading">
         <h1>Thriller</h1>
@@ -50,28 +64,33 @@
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
                     <a href="{{ route('netflix.edit', [$filmThriller]) }}" class="modifygear">⚙️</a>
-                </div>   
+                    <form method="POST" action="{{ route('films.destroy', [$filmThriller->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="deleteX">❌</button>
+                    </form>
+                </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmThriller]) }}"></a>
-                    <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span>{{$filmThriller->annee}}</span>
-                            <a>{{$filmThriller->titre}}</a>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$filmThriller->annee}}</span>
+                        <a>{{$filmThriller->titre}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
+                            <a>{{$filmThriller->type}}</a>
                         </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
-                                <a>{{$filmThriller->type}}</a>
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$filmThriller->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
-                            </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$filmThriller->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
         @endforeach
         @else
@@ -99,29 +118,34 @@
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
                     <a href="{{ route('netflix.edit', [$filmHorror]) }}" class="modifygear">⚙️</a>
-                </div>   
+                    <form method="POST" action="{{ route('films.destroy', [$filmHorror->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="deleteX">❌</button>
+                    </form>
+                </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmHorror]) }}"></a>
 
-                    <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span>{{$filmHorror->annee}}</span>
-                            <a>{{$filmHorror->titre}}</a>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$filmHorror->annee}}</span>
+                        <a>{{$filmHorror->titre}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
+                            <a>{{$filmHorror->type}}</a>
                         </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
-                                <a>{{$filmHorror->type}}</a>
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$filmHorror->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
-                            </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$filmHorror->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
                         </div>
                     </div>
                 </div>
+            </div>
             </a>
         </div>
         @endforeach
@@ -151,29 +175,34 @@
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
                     <a href="{{ route('netflix.edit', [$filmMystery]) }}" class="modifygear">⚙️</a>
-                </div>   
+                    <form method="POST" action="{{ route('films.destroy', [$filmMystery->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="deleteX">❌</button>
+                    </form>
+                </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmMystery]) }}"></a>
 
-                    <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span>{{$filmMystery->annee}}</span>
-                            <a>{{$filmMystery->titre}}</a>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$filmMystery->annee}}</span>
+                        <a>{{$filmMystery->titre}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
+                            <a>{{$filmMystery->type}}</a>
                         </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
-                                <a>{{$filmMystery->type}}</a>
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$filmMystery->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
-                            </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$filmMystery->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
                         </div>
                     </div>
                 </div>
+            </div>
             </a>
         </div>
         @endforeach
@@ -206,29 +235,34 @@
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
                     <a href="{{ route('netflix.edit', [$filmMostPop]) }}" class="modifygear">⚙️</a>
-                </div>   
+                    <form method="POST" action="{{ route('films.destroy', [$filmMostPop->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="deleteX">❌</button>
+                    </form>
+                </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmMostPop]) }}"></a>
 
-                    <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span>{{$filmMostPop->annee}}</span>
-                            <a>{{$filmMostPop->titre}}</a>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$filmMostPop->annee}}</span>
+                        <a>{{$filmMostPop->titre}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
+                            <a>{{$filmMostPop->type}}</a>
                         </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
-                                <a>{{$filmMostPop->type}}</a>
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$filmMostPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
-                            </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$filmMostPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
                         </div>
                     </div>
                 </div>
+            </div>
             </a>
         </div>
         @endforeach
@@ -260,29 +294,34 @@
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
                     <a href="{{ route('netflix.edit', [$filmLeastPop]) }}" class="modifygear">⚙️</a>
-                </div>   
+                    <form method="POST" action="{{ route('films.destroy', [$filmLeastPop->id]) }}">
+                        @csrf
+                        @method('DELETE')
+                        <button class="deleteX">❌</button>
+                    </form>
+                </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmLeastPop]) }}"></a>
 
-                    <!--bottom-text-->
-                    <div class="bottom-text">
-                        <!--name----->
-                        <div class="movie-name">
-                            <span>{{$filmLeastPop->annee}}</span>
-                            <a>{{$filmLeastPop->titre}}</a>
+                <!--bottom-text-->
+                <div class="bottom-text">
+                    <!--name----->
+                    <div class="movie-name">
+                        <span>{{$filmLeastPop->annee}}</span>
+                        <a>{{$filmLeastPop->titre}}</a>
+                    </div>
+                    <!--Category-and-rating---->
+                    <div class="category-rating">
+                        <!--category-->
+                        <div class="category">
+                            <a>{{$filmLeastPop->type}}</a>
                         </div>
-                        <!--Category-and-rating---->
-                        <div class="category-rating">
-                            <!--category-->
-                            <div class="category">
-                                <a>{{$filmLeastPop->type}}</a>
-                            </div>
-                            <!--rating--->
-                            <div class="rating">
-                                {{$filmLeastPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
-                            </div>
+                        <!--rating--->
+                        <div class="rating">
+                            {{$filmLeastPop->cote}} <img alt="imbd" src="images/IMDb-icon.png" />
                         </div>
                     </div>
                 </div>
+            </div>
             </a>
         </div>
         @endforeach

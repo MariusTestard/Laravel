@@ -46,6 +46,14 @@ Route::get('/films/create',
 Route::post('/filmsCreate',
     [NetflixFilmsController::class, 'store'])->name('films.store');
 
+// LIER DES ACTEURS À DES FILMS -----------------------------------------------
+Route::get('/films/add',
+    [NetflixFilmsController::class, 'createAdd'])->name('filmsAdd.create');
+
+Route::post('/filmsAdd',
+    [NetflixFilmsController::class, 'storeAdd'])->name('filmsAdd.store');
+// LIER DES ACTEURS À DES FILMS -----------------------------------------------
+
 Route::get(
     '/films/{film}',
     [NetflixFilmsController::class, 'show'])->name('film.show');
@@ -69,3 +77,9 @@ Route::get(
     Route::patch(
         'personnes/modify/{personne}',
         [NetflixPersonnesController::class, 'update'])->name('personne.update');
+
+Route::delete('/films/delete/{id}',
+    [NetflixFilmsController::class, 'destroy'])->name('films.destroy');
+
+Route::delete('/personnes/delete/{id}',
+    [NetflixPersonnesController::class, 'destroy'])->name('personnes.destroy');

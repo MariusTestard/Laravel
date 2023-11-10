@@ -32,7 +32,9 @@ class FilmRequest extends FormRequest
             'brand' => 'required|max:150',
             'cote' => 'required|max:4',
             'rating' => 'required|max:15',
-            'bannerLien' => 'required|max:1000'
+            'bannerLien' => 'required|max:1000',
+            'producteur_id' => 'required|max:25',
+            'realisateur_id' => 'required|max:25'
         ];
     }
     
@@ -49,7 +51,9 @@ class FilmRequest extends FormRequest
             'brand.max' => 'La brand est trop long (Max: 150).',
             'cote.max' => 'La côte est trop longue (Max:4).',
             'rating.max' => 'Le rating est trop long (Max: 15).',
-            'bannerLien.max' => 'Le lien est trop long (Max: 1000).'
+            'bannerLien.max' => 'Le lien est trop long (Max: 1000).',
+            'producteur_id.max' => "L'ID pour le producteur est beaucoup trop long, c'est le temps de faire le ménage dans votre BD.",
+            'realisateur_id.max' => "L'ID pour le réalisateur est beaucoup trop long, c'est le temps de faire le ménage dans votre BD.'"
         ];
     }
 }

@@ -18,7 +18,6 @@
     <button type="submit">
         <i class="fas fa-search"></i>
     </button>
-</form>
 @endsection
 
 <!-- 
@@ -39,11 +38,12 @@
 <!--==Navigation===================================-->
 <section id="latest">
     <!--heading-------->
-    <div id="buttonsDisplay">
-        <a href="{{ route('films.create') }}" class="create-btn">Create</a>
-        <a href="{{ route('filmsAdd.create') }}" class="create-btn">Add persons</a>
-    </div>
-
+    @role('admin')
+        <div id="buttonsDisplay">
+            <a href="{{ route('films.create') }}" class="create-btn">Create</a>
+            <a href="{{ route('filmsAdd.create') }}" class="create-btn">Add persons</a>
+        </div>
+    @endrole
     <div class="latest-heading">
         <h1>Thriller</h1>
     </div>
@@ -63,12 +63,14 @@
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
-                    <a href="{{ route('netflix.edit', [$filmThriller]) }}" class="modifygear">⚙️</a>
-                    <form method="POST" action="{{ route('films.destroy', [$filmThriller->id]) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button class="deleteX">❌</button>
-                    </form>
+                    @role('admin')
+                        <a href="{{ route('netflix.edit', [$filmThriller]) }}" class="modifygear">⚙️</a>
+                        <form method="POST" action="{{ route('films.destroy', [$filmThriller->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                                <button class="deleteX">❌</button>
+                        </form>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmThriller]) }}"></a>
                 <!--bottom-text-->
@@ -117,12 +119,14 @@
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
-                    <a href="{{ route('netflix.edit', [$filmHorror]) }}" class="modifygear">⚙️</a>
-                    <form method="POST" action="{{ route('films.destroy', [$filmHorror->id]) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button class="deleteX">❌</button>
-                    </form>
+                    @role('admin')
+                        <a href="{{ route('netflix.edit', [$filmHorror]) }}" class="modifygear">⚙️</a>
+                        <form method="POST" action="{{ route('films.destroy', [$filmHorror->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                                <button class="deleteX">❌</button>
+                        </form>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmHorror]) }}"></a>
 
@@ -174,12 +178,15 @@
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
+                    @role('admin')
                     <a href="{{ route('netflix.edit', [$filmMystery]) }}" class="modifygear">⚙️</a>
-                    <form method="POST" action="{{ route('films.destroy', [$filmMystery->id]) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button class="deleteX">❌</button>
-                    </form>
+                        <a href="{{ route('netflix.edit', [$filmMystery]) }}" class="modifygear">⚙️</a>
+                        <form method="POST" action="{{ route('films.destroy', [$filmMystery->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                                <button class="deleteX">❌</button>
+                        </form>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmMystery]) }}"></a>
 
@@ -234,12 +241,14 @@
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
-                    <a href="{{ route('netflix.edit', [$filmMostPop]) }}" class="modifygear">⚙️</a>
-                    <form method="POST" action="{{ route('films.destroy', [$filmMostPop->id]) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button class="deleteX">❌</button>
-                    </form>
+                    @role('admin')
+                        <a href="{{ route('netflix.edit', [$filmMostPop]) }}" class="modifygear">⚙️</a>
+                        <form method="POST" action="{{ route('films.destroy', [$filmMostPop->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                                <button class="deleteX">❌</button>
+                        </form>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmMostPop]) }}"></a>
 
@@ -293,12 +302,14 @@
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">Full HD</span>
-                    <a href="{{ route('netflix.edit', [$filmLeastPop]) }}" class="modifygear">⚙️</a>
-                    <form method="POST" action="{{ route('films.destroy', [$filmLeastPop->id]) }}">
-                        @csrf
-                        @method('DELETE')
-                        <button class="deleteX">❌</button>
-                    </form>
+                    @role('admin')
+                        <a href="{{ route('netflix.edit', [$filmLeastPop]) }}" class="modifygear">⚙️</a>
+                        <form method="POST" action="{{ route('films.destroy', [$filmLeastPop->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                                <button class="deleteX">❌</button>
+                        </form>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('film.show', [$filmLeastPop]) }}"></a>
 

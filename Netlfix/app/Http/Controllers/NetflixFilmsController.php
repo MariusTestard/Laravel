@@ -21,7 +21,8 @@ class NetflixFilmsController extends Controller
         $filmsMystery = Film::where('type', '=', 'Mystery')->get();
         $filmsMostPop = Film::where('cote', '>=', 7.5)->get();
         $filmsLeastPop = Film::where('cote', '<=', 2.5)->get();
-        return View('Netflix.index', compact('filmsHorror', 'filmsThriller', 'filmsMystery', 'filmsMostPop', 'filmsLeastPop'));
+        $filmsEnfant = Film::where('rating', '=', '10 et plus')->get();
+        return View('Netflix.index', compact('filmsHorror', 'filmsThriller', 'filmsMystery', 'filmsMostPop', 'filmsLeastPop', 'filmsEnfant'));
     }
 
     /**

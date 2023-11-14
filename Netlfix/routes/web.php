@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NetflixFilmsController;
 use App\Http\Controllers\NetflixPersonnesController;
 use App\Http\Controllers\PersonnesCreateController;
+use App\Http\Controllers\UsagersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,59 +28,69 @@ Route::get('/laravel', function () {
 // ROUTE FILMS
 Route::get(
     '/',
-    [NetflixFilmsController::class, 'index'])->name('netflix.index');
-
+    [NetflixFilmsController::class, 'index'])->name('netflix.index')->middleware('auth');
     
     Route::get(
         '/personne',
-        [NetflixPersonnesController::class, 'index'])->name('netflix.personne');
+        [NetflixPersonnesController::class, 'index'])->name('netflix.personne')->middleware('auth');
         
 Route::get('/personnes/create',
-    [NetflixPersonnesController::class, 'create'])->name('personnes.create');   
+    [NetflixPersonnesController::class, 'create'])->name('personnes.create')->middleware('CheckRole:admin');   
 
     Route::post('/personnesCreate',
-        [NetflixPersonnesController::class, 'store'])->name('personnes.store');
+        [NetflixPersonnesController::class, 'store'])->name('personnes.store')->middleware('CheckRole:admin');
         
 Route::get('/films/create',
-[NetflixFilmsController::class, 'create'])->name('films.create');   
+[NetflixFilmsController::class, 'create'])->name('films.create')->middleware('CheckRole:admin');   
 
 Route::post('/filmsCreate',
-    [NetflixFilmsController::class, 'store'])->name('films.store');
+    [NetflixFilmsController::class, 'store'])->name('films.store')->middleware('CheckRole:admin');
 
 // LIER DES ACTEURS À DES FILMS -----------------------------------------------
 Route::get('/films/add',
-    [NetflixFilmsController::class, 'createAdd'])->name('filmsAdd.create');
+    [NetflixFilmsController::class, 'createAdd'])->name('filmsAdd.create')->middleware('CheckRole:admin');
 
 Route::post('/filmsAdd',
-    [NetflixFilmsController::class, 'storeAdd'])->name('filmsAdd.store');
+    [NetflixFilmsController::class, 'storeAdd'])->name('filmsAdd.store')->middleware('CheckRole:admin');
 // LIER DES ACTEURS À DES FILMS -----------------------------------------------
 
 Route::get(
     '/films/{film}',
-    [NetflixFilmsController::class, 'show'])->name('film.show');
+    [NetflixFilmsController::class, 'show'])->name('film.show')->middleware('auth');
     
 Route::get(
     '/personnes/{personne}',
-    [NetflixPersonnesController::class, 'show'])->name('personne.zoom');
+    [NetflixPersonnesController::class, 'show'])->name('personne.zoom')->middleware('auth');
 
 Route::get(
     'films/modify/{film}',
-    [NetflixFilmsController::class, 'edit'])->name('netflix.edit');
+    [NetflixFilmsController::class, 'edit'])->name('netflix.edit')->middleware('CheckRole:admin');
 
     Route::patch(
         'films/modify/{film}',
-        [NetflixFilmsController::class, 'update'])->name('netflix.update');
+        [NetflixFilmsController::class, 'update'])->name('netflix.update')->middleware('CheckRole:admin');
 
 Route::get(
     'personnes/modify/{personne}',
-    [NetflixPersonnesController::class, 'edit'])->name('personne.edit');
+    [NetflixPersonnesController::class, 'edit'])->name('personne.edit')->middleware('CheckRole:admin');
 
     Route::patch(
         'personnes/modify/{personne}',
-        [NetflixPersonnesController::class, 'update'])->name('personne.update');
+        [NetflixPersonnesController::class, 'update'])->name('personne.update')->middleware('CheckRole:admin');
 
 Route::delete('/films/delete/{id}',
-    [NetflixFilmsController::class, 'destroy'])->name('films.destroy');
+    [NetflixFilmsController::class, 'destroy'])->name('films.destroy')->middleware('CheckRole:admin');
 
 Route::delete('/personnes/delete/{id}',
-    [NetflixPersonnesController::class, 'destroy'])->name('personnes.destroy');
+    [NetflixPersonnesController::class, 'destroy'])->name('personnes.destroy')->middleware('CheckRole:admin');
+
+/* LOGIN ROUTES*/
+
+Route::get('/login',
+    [UsagersController::class, 'showLoginForm'])->name('login');
+
+    Route::post('/login',
+        [UsagersController::class, 'login'])->name('login.login');
+
+    Route::post('/logout',
+        [UsagersController::class, 'logout'])->name('logout')->middleware('CheckRole:admin, normal, enfant');

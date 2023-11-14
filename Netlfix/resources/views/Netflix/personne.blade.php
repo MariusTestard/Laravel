@@ -26,7 +26,11 @@
     <span id="progress-value"></span>
 </div>
 <!--==Navigation===================================-->
-<a href="{{ route('personnes.create') }}" class="create-btn">Create</a>
+@role('admin')
+<div id="buttonsDisplay">
+    <a href="{{ route('personnes.create') }}" class="create-btn">Create</a>
+</div>
+@endrole
 <section id="latest">
     <!--heading-------->
     <div class="latest-heading">
@@ -47,14 +51,18 @@
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">{{$personneVieux->prenom}} {{$personneVieux->nom}}</span>
+                    @role('admin')
                     <a href="{{ route('personne.edit', [$personneVieux]) }}" class="modifygear">⚙️</a>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('personne.zoom', [$personneVieux]) }}"></a>
+                @role('admin')
                 <form method="POST" action="{{ route('personnes.destroy', [$personneVieux->id]) }}">
                     @csrf
                     @method('DELETE')
                     <button class="deleteX">❌</button>
                 </form>
+                @endrole
 
                 <!--bottom-text-->
                 <div class="bottom-text">
@@ -103,12 +111,14 @@
                     <div class="quality">
                         {{$personneJeune->prenom}} {{$personneJeune->nom}}
                     </div>
+                    @role('admin')
                     <a href="{{ route('personne.edit', [$personneJeune]) }}" class="modifygear">⚙️</a>
                     <form method="POST" action="{{ route('personnes.destroy', [$personneJeune->id]) }}">
                         @csrf
                         @method('DELETE')
                         <button class="deleteX">❌</button>
                     </form>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('personne.zoom', [$personneJeune]) }}"></a>
                 <!--bottom-text-->
@@ -156,12 +166,14 @@
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">{{$personneActeur->prenom}} {{$personneActeur->nom}}</span>
+                    @role('admin')
                     <a href="{{ route('personne.edit', [$personneActeur]) }}" class="modifygear">⚙️</a>
                     <form method="POST" action="{{ route('personnes.destroy', [$personneActeur->id]) }}">
                         @csrf
                         @method('DELETE')
                         <button class="deleteX">❌</button>
                     </form>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('personne.zoom', [$personneActeur]) }}"></a>
 
@@ -209,12 +221,14 @@
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">{{$personneRealisateur->prenom}} {{$personneRealisateur->nom}}</span>
+                    @role('admin')
                     <a href="{{ route('personne.edit', [$personneRealisateur]) }}" class="modifygear">⚙️</a>
                     <form method="POST" action="{{ route('personnes.destroy', [$personneRealisateur->id]) }}">
                         @csrf
                         @method('DELETE')
                         <button class="deleteX">❌</button>
                     </form>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('personne.zoom', [$personneRealisateur]) }}"></a>
                 <!--bottom-text-->
@@ -260,12 +274,14 @@
                 <!--quality----->
                 <div id="topFilm">
                     <span class="quality">{{$personneProducteur->prenom}} {{$personneProducteur->nom}}</span>
+                    @role('admin')
                     <a href="{{ route('personne.edit', [$personneProducteur]) }}" class="modifygear">⚙️</a>
                     <form method="POST" action="{{ route('personnes.destroy', [$personneProducteur->id]) }}">
                         @csrf
                         @method('DELETE')
                         <button class="deleteX">❌</button>
                     </form>
+                    @endrole
                 </div>
                 <a class="zoomfilm" href="{{ route('personne.zoom', [$personneProducteur]) }}"></a>
 

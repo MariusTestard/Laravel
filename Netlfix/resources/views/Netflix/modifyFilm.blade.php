@@ -27,7 +27,7 @@
 
     <div class="form-wrapper">
         <h2>Modifier un film</h2>
-        <form method="post" action="{{ route('netflix.update', $film) }}">
+        <form method="post" action="{{ route('netflix.update', $film) }}" enctype="multipart/form-data">
             @csrf
             @method('Patch')
             <div class="containerSideToSideInput">
@@ -66,9 +66,9 @@
                     </div>
                 </div>
                 <div class="div50to50">
-                    <div class="form-control">
+                    <div class="form-control-file">
                         <label for="pochette"></label>
-                        <input type="url" id="pochette" name="pochette" value="{{ $film->pochette }}" placeholder="Pochette" required>
+                        <input type="file" id="pochette" name="pochette" value="{{ $film->pochette }}" placeholder="Pochette" required>
                     </div>
                 </div>
             </div>
@@ -100,9 +100,9 @@
                     </div>
                 </div>
             </div>
-            <div class="form-control">
+            <div class="form-control-file">
                 <label for="bannerLien"></label>
-                <input type="text" id="bannerLien" name="bannerLien" value="{{ $film->bannerLien }}" placeholder="Lien de la bannière" required>
+                <input type="file" id="bannerLien" name="bannerLien" value="{{ $film->bannerLien }}" placeholder="Lien de la bannière" required>
             </div>
             <button type="submit">Modify</button>
             <div class="form-help">

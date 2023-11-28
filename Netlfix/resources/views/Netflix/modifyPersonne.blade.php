@@ -27,7 +27,7 @@
 
     <div class="form-wrapper">
         <h2>Modifier une personne</h2>
-        <form method="post" action="{{ route('personne.update', $personne) }}">
+        <form method="post" action="{{ route('personne.update', $personne) }}" enctype="multipart/form-data">
             @csrf
             @method('Patch')
             <div class="form-control">
@@ -38,9 +38,9 @@
                 <label for="nomActeur"></label>
                 <input type="text" id="nomActeur" name="nom" value="{{ $personne->nom }}" placeholder="Nom" required>
             </div>
-            <div class="form-control">
-                <label for="photo"></label>
-                <input type="url" id="photo" name="photo" value="{{ $personne->photo }}" placeholder="Photo" required>
+            <div class="form-control-file">
+                <label for="photo">Sélectionner l'image</label>
+                <input type="file" id="photo" name="photo" value="{{ $personne->photo }}" placeholder="Photo" required>
             </div>
             <div class="form-control">
                 <label for="wikiLien"></label>

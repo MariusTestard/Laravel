@@ -22,7 +22,8 @@
 <section class="movie-banner">
     <!--==img==================================-->
     <div class="m-banner-img">
-        <img alt="" src="{{ $film->bannerLien }}">
+         <img alt="" src="{{ $film->bannerLien }}"> 
+        
     </div>
     <!--content================================-->
     <div class="banner-container">

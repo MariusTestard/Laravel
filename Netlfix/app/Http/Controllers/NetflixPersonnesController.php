@@ -6,6 +6,8 @@ use App\Http\Requests\PersonneRequest;
 use Illuminate\Http\Request;
 use App\Models\Personne;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use File;
 
 class NetflixPersonnesController extends Controller
 {
@@ -41,8 +43,19 @@ class NetflixPersonnesController extends Controller
         // Log::debug($acteur);
         try {
             $personne = new Personne($request->all());
+
+            $uploadedFile = $request->file('photo');
+            $nomFichierUnique = str_replace(' ', '_', $personne->nom) . '-' . uniqid() . '.' . $uploadedFile->extension();
+
+            try{
+                $request->photo->move(public_path('img/personnes'), $nomFichierUnique);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+            }
+            $personne->photo = "/img/personnes/" . $nomFichierUnique;
             $personne->save();
-            return redirect()->route('netflix.personne')->with('message', "Ajout de: " . $personne->nom . " réussi!");
+            return redirect()->route('netflix.personne')->with('messages', "Ajout de: " . $personne->nom . " réussi!");
         }
 
         catch (\Throwable $e){
@@ -77,11 +90,27 @@ class NetflixPersonnesController extends Controller
             $personne->prenom = $request->prenom;
             $personne->nom = $request->nom;
             $personne->date = $request->date;
-            $personne->photo = $request->photo;
+            //$personne->photo = $request->photo;
             $personne->rolePrincipal = $request->rolePrincipal;
             $personne->wikiLien = $request->wikiLien;
+
+
+            
+
+            $uploadedFile = $request->file('photo');
+            $nomFichierUnique = str_replace(' ', '_', $personne->nom) . '-' . uniqid() . '.' . $uploadedFile->extension();
+
+            try{
+                $request->photo->move(public_path('img/personnes'), $nomFichierUnique);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+            }
+            $personne->photo = "/img/personnes/" . $nomFichierUnique;
+
+            
             $personne->save();
-            return redirect()->route('netflix.personne')->with('message', "Modification de: " . $personne->nom . " réussi!");
+            return redirect()->route('netflix.personne')->with('messages', "Modification de: " . $personne->nom . " réussi!");
         }
 
         catch (\Throwable $e){
@@ -98,8 +127,20 @@ class NetflixPersonnesController extends Controller
     {
         try {
             $personne = Personne::findOrFail($id);
+            $photoDelete = $personne->photo;
+            if(File::exists(public_path($photoDelete))) {
+            try{
+                    File::delete(public_path($photoDelete));
+                }
+                catch(\Throwable $e){
+                    Log::debug($e);
+                    return redirect()->route('netflix.personne')->withErrors(["La supression de l'image dans le dossier n'a pas fonctionné!"]);
+                }
+            } else {
+                return redirect()->route('netflix.personne')->withErrors(["Vous tentez de supprimer une image qui n'existe pas dans le dossier"]);
+            }
             $personne->delete();
-            return redirect()->route('netflix.personne')->with('message', "Supression de: " . $personne->nom . " réussi!");
+            return redirect()->route('netflix.personne')->with('messages', "Supression de: " . $personne->nom . " réussi!");
         }
         catch(\Throwable $e) {
             Log::debug($e);

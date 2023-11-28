@@ -57,7 +57,9 @@
             <div class="post-box">
                 <!--img-->
                 <div class="post-img">
+           
                     <img alt="" src="{{$filmThriller->pochette}}" />
+        
                 </div>
 
                 <!--text---------->
@@ -373,6 +375,7 @@
                 <!--img-->
                 <div class="post-img">
                     <img alt="" src="{{$filmMostPop->pochette}}" />
+
                 </div>
                 <!--text---------->
 
@@ -427,7 +430,9 @@
             <div class="post-box">
                 <!--img-->
                 <div class="post-img">
+  
                     <img alt="" src="{{$filmMostPopEnfant->pochette}}" />
+                
                 </div>
                 <!--text---------->
 
@@ -478,7 +483,9 @@
             <div class="post-box">
                 <!--img-->
                 <div class="post-img">
-                    <img alt="" src="{{$filmLeastPop->pochette}}" />
+            
+                    <img alt="" src="{{ $filmLeastPop->pochette }}" />
+    
                 </div>
                 <!--text---------->
 
@@ -533,7 +540,9 @@
             <div class="post-box">
                 <!--img-->
                 <div class="post-img">
-                    <img alt="" src="{{$filmLeastPopEnfant->pochette}}" />
+
+                    <img alt="" src="{{ $filmLeastPopEnfant->pochette }}" />
+
                 </div>
                 <!--text---------->
 

@@ -24,7 +24,7 @@ class PersonneRequest extends FormRequest
         return [
             'prenom' => 'required|max:50',
             'nom' => 'required|max:50',
-            'photo' => 'required|max:1000',
+            'photo' => 'required|image|mimes:png,jpeg,jpg|max:4000',
             'rolePrincipal' => 'required|max:25',
             'wikiLien' => 'required|max:150',
             'date' => 'required|date'
@@ -36,7 +36,8 @@ class PersonneRequest extends FormRequest
         return[
             'nom.max' => 'Le nom est trop long (Max: 50). ',
             'prenom.max' => 'Le prénom est trop long (Max: 50).',
-            'photo.max' => "L'url est trop long (Max: 1000).",
+            'photo.max' => "La taille de l\'image est trop grande  (Max: 4000Kb).",
+            'photo.mimes' => "Le type de fichier n\'est pas reconnu.",
             'wikiLien.max' => 'Le lien est trop long (Max:150).',
             'rolePrincipal.max' => 'Le rôle principal est trop long (Max: 25).'
         ];

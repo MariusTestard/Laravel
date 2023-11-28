@@ -7,6 +7,8 @@ use App\Models\Film;
 use App\Models\FilmPersonne;
 use App\Models\Personne;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\Storage;
+use File;
 
 class NetflixFilmsController extends Controller
 {
@@ -62,8 +64,31 @@ class NetflixFilmsController extends Controller
     {
         try {
             $film = new Film($request->all());
+
+            $uploadedFile = $request->file('pochette');
+            $nomFichierUnique = str_replace(' ', '_', $film->titre) . '-' . uniqid() . '.' . $uploadedFile->extension();
+
+            try{
+                $request->pochette->move(public_path('img/films'), $nomFichierUnique);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+            }
+            $film->pochette = "/img/films/" . $nomFichierUnique;
+
+            $uploadedFile = $request->file('bannerLien');
+            $nomFichierUnique = str_replace(' ', '_', $film->titre) . '-' . uniqid() . '.' . $uploadedFile->extension();
+
+            try{
+                $request->bannerLien->move(public_path('img/films'), $nomFichierUnique);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+            }
+            $film->bannerLien = "/img/films/" . $nomFichierUnique;
+
             $film->save();
-            return redirect()->route('netflix.index')->with('message', "Ajout du film " . $film->nom . " réussi!");
+            return redirect()->route('netflix.index')->with('messages', "Ajout du film " . $film->nom . " réussi!");
         }
         catch (\Throwable $e){
             Log::debug($e);
@@ -77,7 +102,7 @@ class NetflixFilmsController extends Controller
         try {
             $film = new FilmPersonne($request->all());
             $film->save();
-            return redirect()->route('netflix.index')->with('message', "Ajout de: " . $request->nom . " pour le film " . $film->nom . " réussi!");
+            return redirect()->route('netflix.index')->with('messages', "Ajout de: " . $request->nom . " pour le film " . $film->nom . " réussi!");
         }
         catch (\Throwable $e){
             Log::debug($e);
@@ -115,16 +140,42 @@ class NetflixFilmsController extends Controller
             $film->duree = $request->duree;
             $film->annee = $request->annee;
             $film->lienFilm = $request->lienFilm;
-            $film->pochette = $request->pochette;
+            
             $film->type = $request->type;
             $film->brand = $request->brand;
             $film->cote = $request->cote;
             $film->rating = $request->rating;
-            $film->bannerLien = $request->bannerLien;
+            
             $film->producteur_id = $request->producteur_id;
             $film->realisateur_id = $request->realisateur_id;
+
+
+            $uploadedFile = $request->file('pochette');
+            $nomFichierUnique = str_replace(' ', '_', $film->titre) . '-' . uniqid() . '.' . $uploadedFile->extension();
+
+            try{
+                $request->pochette->move(public_path('img/films'), $nomFichierUnique);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+            }
+            $film->pochette = "/img/films/" . $nomFichierUnique;
+
+            $uploadedFile = $request->file('bannerLien');
+            $nomFichierUnique = str_replace(' ', '_', $film->titre) . '-' . uniqid() . '.' . $uploadedFile->extension();
+
+            try{
+                $request->bannerLien->move(public_path('img/films'), $nomFichierUnique);
+            }
+            catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
+                Log::error("Erreur lors du téléversement du fichier. ", [$e]);
+            }
+            $film->bannerLien = "/img/films/" . $nomFichierUnique;
+
+
+            
             $film->save();
-            return redirect()->route('netflix.index')->with('message', "Modification de: " . $film->nom . " réussi!");
+            return redirect()->route('netflix.index')->with('messages', "Modification de: " . $film->nom . " réussi!");
         }
 
         catch (\Throwable $e){
@@ -142,9 +193,22 @@ class NetflixFilmsController extends Controller
         try {
             $film = Film::findOrFail($id);
             $film->acteurs()->detach();
-
+            $pochetteDelete = $film->pochette;
+            $bannerDelete = $film->bannerLien;
+            if(File::exists(public_path($pochetteDelete)) && File::exists(public_path($bannerDelete))){
+            try{
+                File::delete(public_path($pochetteDelete));
+                File::delete(public_path($bannerDelete));
+            }
+            catch(\Throwable $e){
+                Log::debug($e);
+                return redirect()->route('netflix.index')->withErrors(["La supression des images dans le dossier n'a pas fonctionné!"]);
+            }
+        }else{
+            return redirect()->route('netflix.index')->withErrors(["Vous tentez de supprimer une image qui n'existe pas dans le dossier"]);
+        }
             $film->delete();
-            return redirect()->route('netflix.index')->with('message', "Supression de: " . $film->nom . " réussi!");
+            return redirect()->route('netflix.index')->with('messages', "Supression de: " . $film->nom . " réussi!");
         }
         catch(\Throwable $e) {
             Log::debug($e);

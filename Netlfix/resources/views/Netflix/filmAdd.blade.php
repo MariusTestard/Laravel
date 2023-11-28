@@ -20,23 +20,25 @@
 
 <body>
     <nav>
-        <a href="#" class="logo">
+        <a href="{{ route('netflix.index') }}" class="logo">
             Films<span>.hd</span>
         </a>
     </nav>
 
     <div class="form-wrapper">
-        <h2>Ajouter des acteurs</h2>
+        <h2>Ajouter un réalisateur</h2>
         <form method="post" action="{{ route('filmsAdd.store')}}">
             @csrf
-            <select class="form-control" id="idFilm" name="film_id">
-                <option>Veuillez choisir un film...</option>
-                @foreach($films as $film)
-                <option value="{{$film->id}}" {{$film->id == old('id') ? 'selected' : null }}>
-                    {{ $film->titre }}
-                </option>
-                @endforeach
-            </select>
+            <div>
+                <select class="form-control" id="idFilm" name="film_id">
+                    <option>Veuillez choisir un film...</option>
+                    @foreach($films as $film)
+                    <option value="{{$film->id}}" {{$film->id == old('id') ? 'selected' : null }}>
+                        {{ $film->titre }}
+                    </option>
+                    @endforeach
+                </select>
+            </div>
             <select class="form-control" id="idPerson" name="personne_id">
                 <option>Veuillez choisir un réalisateur...</option>
                 @foreach($acteurs as $acteur)
@@ -50,9 +52,6 @@
                 <a href="#">Need help?</a>
             </div>
         </form>
-        <small>
-            This page is protected by Google reCAPTCHA to ensure you're not a bot.
-        </small>
     </div>
 </body>
 

@@ -42,9 +42,6 @@
                 <a href="#">Need help?</a>
             </div>
         </form>
-        <small>
-            This page is protected by Google reCAPTCHA to ensure you're not a bot.
-        </small>
     </div>
 </body>
 

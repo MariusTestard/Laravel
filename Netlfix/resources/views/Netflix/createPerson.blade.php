@@ -20,13 +20,13 @@
 
 <body>
     <nav>
-        <a href="#" class="logo">
+        <a href="{{ route('netflix.personne') }}" class="logo">
             Films<span>.hd</span>
         </a>
     </nav>
 
     <div class="form-wrapper">
-        <h2>Personne</h2>
+        <h2>Créer une personne</h2>
         <form method="post" action="{{ route('personnes.store')}}">
             @csrf
             <div class="form-control">
@@ -58,9 +58,6 @@
                 <a href="#">Need help?</a>
             </div>
         </form>
-        <small>
-            This page is protected by Google reCAPTCHA to ensure you're not a bot.
-        </small>
     </div>
 </body>
 

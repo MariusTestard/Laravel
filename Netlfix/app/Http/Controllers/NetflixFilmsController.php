@@ -16,13 +16,26 @@ class NetflixFilmsController extends Controller
     public function index()
     {
         // GET tous les producteurs et réalisateurs  $personnes = Personne->get();
+        // FILMS NORMAUX
         $filmsHorror = Film::where('type', '=', 'Horror')->get();
         $filmsThriller = Film::where('type', '=', 'Thriller')->get();
         $filmsMystery = Film::where('type', '=', 'Mystery')->get();
         $filmsMostPop = Film::where('cote', '>=', 7.5)->get();
         $filmsLeastPop = Film::where('cote', '<=', 2.5)->get();
-        $filmsEnfant = Film::where('rating', '=', '10 et plus')->get();
-        return View('Netflix.index', compact('filmsHorror', 'filmsThriller', 'filmsMystery', 'filmsMostPop', 'filmsLeastPop', 'filmsEnfant'));
+
+        // FILMS ENFANTS
+        $filmsHorrorEnfant = Film::where('type', '=', 'Horror') 
+                                 ->where(Film::raw('SUBSTR(rating, 1, 2)'), '<=', '14')->get();
+        $filmsThrillerEnfant = Film::where('type', '=', 'Thriller') 
+                                   ->where(Film::raw('SUBSTR(rating, 1, 2)'), '<=', '14')->get();
+        $filmsMysteryEnfant = Film::where('type', '=', 'Mystery')
+                                  ->where(Film::raw('SUBSTR(rating, 1, 2)'), '<=', '14')->get();
+        $filmsMostPopEnfant = Film::where('cote', '>=', 7.5) 
+                                  ->where(Film::raw('SUBSTR(rating, 1, 2)'), '<=', '14')->get();
+        $filmsLeastPopEnfant = Film::where('cote', '<=', 2.5) 
+                                   ->where(Film::raw('SUBSTR(rating, 1, 2)'), '<=', '14')->get();
+        return View('Netflix.index', compact('filmsHorror', 'filmsThriller', 'filmsMystery', 'filmsMostPop', 'filmsLeastPop',
+                                            'filmsHorrorEnfant', 'filmsThrillerEnfant', 'filmsMysteryEnfant', 'filmsMostPopEnfant', 'filmsLeastPopEnfant'));
     }
 
     /**
@@ -50,10 +63,11 @@ class NetflixFilmsController extends Controller
         try {
             $film = new Film($request->all());
             $film->save();
+            return redirect()->route('netflix.index')->with('message', "Ajout du film " . $film->nom . " réussi!");
         }
         catch (\Throwable $e){
             Log::debug($e);
-          
+            return redirect()->route('netflix.index')->withErrors(["L'ajout d'un film n'a pas fonctionné!"]);
         }
         return redirect()->route('netflix.index');
     }
@@ -63,9 +77,11 @@ class NetflixFilmsController extends Controller
         try {
             $film = new FilmPersonne($request->all());
             $film->save();
+            return redirect()->route('netflix.index')->with('message', "Ajout de: " . $request->nom . " pour le film " . $film->nom . " réussi!");
         }
         catch (\Throwable $e){
             Log::debug($e);
+            return redirect()->route('netflix.index')->withErrors(["L'ajout d'un réalisateur à un film n'a pas fonctionné!"]);
         }
         return redirect()->route('netflix.index');
     }
@@ -108,10 +124,12 @@ class NetflixFilmsController extends Controller
             $film->producteur_id = $request->producteur_id;
             $film->realisateur_id = $request->realisateur_id;
             $film->save();
+            return redirect()->route('netflix.index')->with('message', "Modification de: " . $film->nom . " réussi!");
         }
 
         catch (\Throwable $e){
             Log::debug($e);
+            return redirect()->route('netflix.index')->withErrors(["La mise à jour d'un film n'a pas fonctionné!"]);
         }
         return redirect()->route('netflix.index');
     }
@@ -126,11 +144,11 @@ class NetflixFilmsController extends Controller
             $film->acteurs()->detach();
 
             $film->delete();
-            return redirect()->route('netflix.index')->with('message', "Supression de " . $film->nom . " réussi!");
+            return redirect()->route('netflix.index')->with('message', "Supression de: " . $film->nom . " réussi!");
         }
         catch(\Throwable $e) {
             Log::debug($e);
-            return redirect()->route('netflix.index')->withErrors(["La supression n'a pas fonctionné!"]);
+            return redirect()->route('netflix.index')->withErrors(["La supression d'un film n'a pas fonctionné!"]);
         }
             return redirect()->route('netflix.index');
     }

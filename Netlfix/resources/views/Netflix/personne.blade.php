@@ -21,6 +21,17 @@
 </form>
 @endsection
 
+<!-- 
+    PHASE DE TEST, À REVOIR ET FAIRE DES TOASTS EN BOOTSTRAP SI ERREURS
+    -->
+    @if(isset($errors) && $errors->any())
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+        <p>{{ $error }}</p>
+        @endforeach
+    </div>
+    @endif
+
 <!--==Scroll-Progress-bar=========================-->
 <div id="progress">
     <span id="progress-value"></span>
@@ -88,7 +99,7 @@
         </div>
         @endforeach
         @else
-        <h1>Il n'y a pas de films</h1>
+        <h1 class="noFilm">Il n'y a pas de personnes</h1>
         @endif
     </div>
     <!--container------->
@@ -144,7 +155,7 @@
         </div>
         @endforeach
         @else
-        <h1 style="color:white">Il n'y a pas de films</h1>
+        <h1 class="noFilm">Il n'y a pas de personnes</h1>
         @endif
     </div>
 
@@ -200,7 +211,7 @@
         </div>
         @endforeach
         @else
-        <h1>Il n'y a pas de films</h1>
+        <h1 class="noFilm">Il n'y a pas de personnes</h1>
         @endif
     </div>
 
@@ -252,7 +263,7 @@
         </div>
         @endforeach
         @else
-        <h1>Il n'y a pas de films</h1>
+        <h1 class="noFilm">Il n'y a pas de personnes</h1>
         @endif
     </div>
 
@@ -309,7 +320,7 @@
         </div>
         @endforeach
         @else
-        <h1>Il n'y a pas de films</h1>
+        <h1 class="noFilm">Il n'y a pas de personnes</h1>
         @endif
     </div>
 

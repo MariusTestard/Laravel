@@ -42,10 +42,12 @@ class NetflixPersonnesController extends Controller
         try {
             $personne = new Personne($request->all());
             $personne->save();
+            return redirect()->route('netflix.personne')->with('message', "Ajout de: " . $personne->nom . " réussi!");
         }
 
         catch (\Throwable $e){
             Log::debug($e);
+            return redirect()->route('netflix.personne')->withErrors(["L'ajout d'une personne n'a pas fonctionné!"]);
         }
         return redirect()->route('netflix.personne');
     }
@@ -79,10 +81,12 @@ class NetflixPersonnesController extends Controller
             $personne->rolePrincipal = $request->rolePrincipal;
             $personne->wikiLien = $request->wikiLien;
             $personne->save();
+            return redirect()->route('netflix.personne')->with('message', "Modification de: " . $personne->nom . " réussi!");
         }
 
         catch (\Throwable $e){
             Log::debug($e);
+            return redirect()->route('netflix.personne')->withErrors(["La modification d'une personne n'a pas fonctionné!"]);
         }
         return redirect()->route('netflix.personne');
     }
@@ -95,11 +99,11 @@ class NetflixPersonnesController extends Controller
         try {
             $personne = Personne::findOrFail($id);
             $personne->delete();
-            return redirect()->route('netflix.personne')->with('message', "Supression de " . $personne->nom . " réussi!");
+            return redirect()->route('netflix.personne')->with('message', "Supression de: " . $personne->nom . " réussi!");
         }
         catch(\Throwable $e) {
             Log::debug($e);
-            return redirect()->route('netflix.personne')->withErrors(["La supression n'a pas fonctionné!"]);
+            return redirect()->route('netflix.personne')->withErrors(["La supression d'une personne n'a pas fonctionné!"]);
         }
             return redirect()->route('netflix.personne');
     }

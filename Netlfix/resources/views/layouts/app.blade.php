@@ -38,6 +38,7 @@
             <li><a href="{{ route('netflix.index') }}">Home</a></li>
             <li><a href="/">Films</a></li>
             <li><a href="/personne">Personnes</a></li>
+            <li><a href="/usagers">Usagers</a></li>
             <!--<li><a href="#">Contact</a></li>-->
         </ul>
         <!--Search-box------------->

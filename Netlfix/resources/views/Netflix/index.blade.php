@@ -24,12 +24,17 @@
     PHASE DE TEST, À REVOIR ET FAIRE DES TOASTS EN BOOTSTRAP SI ERREURS
     -->
     @if(isset($errors) && $errors->any())
-    <div class="alert alert-danger">
+    <div id="pToast">
         @foreach($errors->all() as $error)
-        <p>{{ $error }}</p>
+            {{ $error }}
         @endforeach
+        </div>
     </div>
     @endif
+
+@if(session('messages'))
+    <div class="pToast">{{ session('messages') }}</div>
+@endif
 
     <!--==Scroll-Progress-bar=========================-->
     <div id="progress">
@@ -41,7 +46,8 @@
         @role('admin')
         <div id="buttonsDisplay">
             <a href="{{ route('films.create') }}" class="create-btn">Create</a>
-            <a href="{{ route('filmsAdd.create') }}" class="create-btn">Add persons</a>
+            <a href="{{ route('filmsAdd.create') }}" class="create-btn">Add person</a>
+            <a href="{{ route('netflix.indexRemove') }}" class="create-btn">Remove person</a>
         </div>
         @endrole
 
@@ -601,6 +607,13 @@
     <script src="js/jQuery.js"></script>
     <script>
         /*==scroll-progress-bar======================*/
+        setTimeout(function() {
+        var pToast = document.getElementById('pToast');
+                    pToast.style.animation = "fadeinout 1.75";
+                    setTimeout(function() {
+                        pToast.style.display = "none";
+                    }, 1750);
+                }, 1750);
         let scrollPrecentage = () => {
             let scrollProgress = document.getElementById("progress");
             let progressValue = document.getElementById("progress-value");

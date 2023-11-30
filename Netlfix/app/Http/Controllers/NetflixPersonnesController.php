@@ -130,7 +130,10 @@ class NetflixPersonnesController extends Controller
             $photoDelete = $personne->photo;
             if(File::exists(public_path($photoDelete))) {
             try{
+                    $personne->films()->detach();
                     File::delete(public_path($photoDelete));
+                    $personne->delete();
+                    return redirect()->route('netflix.personne')->with('messages', "Supression de: " . $personne->nom . " réussi!");
                 }
                 catch(\Throwable $e){
                     Log::debug($e);
@@ -139,8 +142,6 @@ class NetflixPersonnesController extends Controller
             } else {
                 return redirect()->route('netflix.personne')->withErrors(["Vous tentez de supprimer une image qui n'existe pas dans le dossier"]);
             }
-            $personne->delete();
-            return redirect()->route('netflix.personne')->with('messages', "Supression de: " . $personne->nom . " réussi!");
         }
         catch(\Throwable $e) {
             Log::debug($e);

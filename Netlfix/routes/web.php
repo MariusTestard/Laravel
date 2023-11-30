@@ -33,12 +33,36 @@ Route::get(
     Route::get(
         '/personne',
         [NetflixPersonnesController::class, 'index'])->name('netflix.personne')->middleware('auth');
+
+Route::get(
+    '/usagers',
+    [UsagersController::class, 'index'])->name('netflix.usager');
         
 Route::get('/personnes/create',
     [NetflixPersonnesController::class, 'create'])->name('personnes.create')->middleware('CheckRole:admin');   
 
     Route::post('/personnesCreate',
         [NetflixPersonnesController::class, 'store'])->name('personnes.store')->middleware('CheckRole:admin');
+
+Route::get('/usagers/create',
+    [UsagersController::class, 'create'])->name('usagers.create')->middleware('CheckRole:admin');   
+
+    Route::post('/usagersCreate',
+        [UsagersController::class, 'store'])->name('usagers.store')->middleware('CheckRole:admin');
+
+        Route::get(
+            'usagers/modify/{usager}',
+            [UsagersController::class, 'edit'])->name('usagers.edit');
+        
+            Route::patch(
+                'usagers/modify/{usager}',
+                [UsagersController::class, 'update'])->name('usagers.update');
+
+                Route::delete('/usagers/delete/{id}',
+                    [UsagersController::class, 'destroy'])->name('usagers.destroy')->middleware('CheckRole:admin');
+
+Route::delete('/personnes/delete/{id}',
+    [NetflixPersonnesController::class, 'destroy'])->name('personnes.destroy')->middleware('CheckRole:admin');
         
 Route::get('/films/create',
 [NetflixFilmsController::class, 'create'])->name('films.create')->middleware('CheckRole:admin');   
@@ -53,6 +77,15 @@ Route::get('/films/add',
 Route::post('/filmsAdd',
     [NetflixFilmsController::class, 'storeAdd'])->name('filmsAdd.store')->middleware('CheckRole:admin');
 // LIER DES ACTEURS À DES FILMS -----------------------------------------------
+
+// RETIRER DES ACTEURS À DES FILMS -----------------------------------------------
+Route::get(
+    '/filmsRemove',
+    [NetflixFilmsController::class, 'indexRemove'])->name('netflix.indexRemove')->middleware('auth');
+
+Route::delete('/films/remove',
+    [NetflixFilmsController::class, 'destroyRemove'])->name('filmsRemove.destroy')->middleware('CheckRole:admin');
+// RETIRER DES ACTEURS À DES FILMS -----------------------------------------------
 
 Route::get(
     '/films/{film}',

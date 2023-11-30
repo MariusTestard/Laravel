@@ -9,6 +9,7 @@ use App\Models\Personne;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 use File;
+use DB;
 
 class NetflixFilmsController extends Controller
 {
@@ -40,6 +41,13 @@ class NetflixFilmsController extends Controller
                                             'filmsHorrorEnfant', 'filmsThrillerEnfant', 'filmsMysteryEnfant', 'filmsMostPopEnfant', 'filmsLeastPopEnfant'));
     }
 
+    public function indexRemove()
+    {
+        $acteurs = Personne::where('rolePrincipal', '=', 'Acteur')->get();
+        $films = Film::all();
+        return(View('netflix.filmRemove', compact('acteurs', 'films')));
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -57,6 +65,27 @@ class NetflixFilmsController extends Controller
         return View('Netflix.filmAdd', compact('acteurs', 'films'));
     }
 
+    
+    public function destroyRemove(Request $request)
+    {
+        try {
+             $film = Film::findOrFail($request->film_id->id);
+             $acteur = Personne::findOrFail($request->personne_id->id);
+             Log::debug($film);
+            Log::debug($acteur);
+            // $acteur->filmsDedans()->detach($idFilm); 
+            // $film->acteurs()->detach($idActeur);
+  
+
+                $test=DB::select('select ' .$film.$acteur.' from film_personne');
+                Log::debug($test);
+                $test->delete();
+            return redirect()->route('netflix.index')->withErrors(["Nous avons retiré l'acteur" . $acteurs->nom . " du film " . $films->titre . "!"]);
+        } catch (\Throwable $e) {
+            return redirect()->route('netflix.index')->withErrors(["Vous n'êtes pas parvenu à supprimer un acteur d'un film"]);
+        }
+        return View('Netflix.filmRemove', compact('acteur', 'film'));
+    }
     /**
      * Store a newly created resource in storage.
      */

@@ -27,11 +27,12 @@
 
     <div class="form-wrapper">
         <h2>Retirer un acteur</h2>
-        <form method="POST" action="{{ route('filmsRemove.destroy') }}">
+        <!-- method="POST" action="{{ route('filmsRemove.destroy') }}"-->
+        <form >
             @csrf
             @method('DELETE')
             <div>
-                <select class="form-control" id="idFilm" name="film_id">
+                <select class="form-control" id="idFilm" name="film_id" onchange="ajaxChange(this.value)">
                     <option>Veuillez choisir un film...</option>
                     @foreach($films as $film)
                     <option value="{{ $film->id }}" {{$film->id == old('id') ? 'selected' : null }}>
@@ -41,19 +42,69 @@
                 </select>
             </div>
             <select class="form-control" id="idPerson" name="personne_id">
-                <option>Veuillez choisir un réalisateur...</option>
+                <option>Veuillez choisir un acteur...</option>
                 @foreach($acteurs as $acteur)
                 <option value="{{ $acteur->id }}" {{$acteur->id == old('id') ? 'selected' : null }}>
                     {{ $acteur->prenom }} {{ $acteur->nom }}
                 </option>
                 @endforeach
             </select>
-            <button type="submit">Remove</button>
+            <button id="ajaxSubmit">Remove</button>
             <div class="form-help">
                 <a href="#">Need help?</a>
             </div>
         </form>
     </div>
 </body>
+<script>
+document.getElementById("idFilm").onselect = function() {ajaxChange()};
+function ajaxChange(str) {
+    console.log(str);
+    let select_item = document.getElementById('idPerson');
+    let options = select_item.getElementsByTagName('option');
 
+    // REMOVES ALL OPTIONS IN SELECT
+    for (var i=options.length; i--;) {
+        select_item.removeChild(options[i]);
+    }
+
+    
+
+    // ADD OPTION IN SELECT
+    var opt = document.createElement('option');
+    opt.innerHTML = "Test";
+    select_item.appendChild(opt);
+
+    $(document).ready(function(){
+    $('#ajaxSubmit').click(function(e){
+        e.preventDefault();
+
+            var varName = $("input[name='token']").val();
+            var varName = $("input[name='token']").val();
+            var varName = $("input[name='token']").val();
+            var varName = $("input[name='token']").val();
+
+            $.ajax({
+                url: "ajouterPOST",
+                type: 'POST',
+                data:{
+                    _token:_token,
+                    nom:nom,
+                    annee:annee,
+                    description:description
+                },
+                success: function(data) {
+                    if(data === "reussi") {
+                        $('#ajoutSuccess').toast('show');
+                    }
+                },
+                error: functio(xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                } 
+            });
+    });
+});
+}
+</script>
 </html>

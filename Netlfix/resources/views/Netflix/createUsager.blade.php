@@ -21,7 +21,7 @@
 <body>
     <nav>
         <a href="{{ route('netflix.usager') }}" class="logo">
-            Films<span>.hd</span>
+            Usagers<span>.hd</span>
         </a>
     </nav>
 
@@ -34,15 +34,15 @@
                 <input type="text" id="nomUsager" name="nomUsager" value="{{ old('nomUsager') }}" placeholder="Username" required>
             </div>
             <div class="form-control">
+                <input type="text" id="prenom" name="prenom" value="{{ old('prenom') }}" placeholder="Prénom" required>
+            </div>
+            <div class="form-control">
                 <label for="nom"></label>
                 <input type="text" id="nom" name="nom" value="{{ old('nom') }}" placeholder="Nom" required>
             </div>
             <div class="form-control">
-                <input type="text" id="prenom" name="prenom" value="{{ old('prenom') }}" placeholder="Prénom" required>
-            </div>
-            <div class="form-control">
                 <label for="email"></label>
-                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Lien Wikipedia" required>
+                <input type="email" id="email" name="email" value="{{ old('email') }}" placeholder="Email" required>
             </div>
             <div class="form-control">
                 <label for="password"></label>
@@ -50,7 +50,12 @@
             </div>
             <div class="form-control">
                 <label for="role"></label>
-                <input type="text" id="date" name="role" value="{{ old('role') }}" placeholder="Rôle" required>
+                <select name="role" id="date">
+                    <option value="Normal">Normal</option>
+                    <option value="Enfant">Enfant</option>
+                    <option value="Admin">Admin</option>
+                </select>
+                
             </div>
             <button type="submit">Create</button>
             <div class="form-help">

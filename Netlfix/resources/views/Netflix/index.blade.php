@@ -33,7 +33,7 @@
     @endif
 
 @if(session('messages'))
-    <div class="pToast">{{ session('messages') }}</div>
+    <div id="pToast">{{ session('messages') }}</div>
 @endif
 
     <!--==Scroll-Progress-bar=========================-->

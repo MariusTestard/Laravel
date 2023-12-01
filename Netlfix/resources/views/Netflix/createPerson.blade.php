@@ -21,7 +21,7 @@
 <body>
     <nav>
         <a href="{{ route('netflix.personne') }}" class="logo">
-            Films<span>.hd</span>
+            Personnes<span>.hd</span>
         </a>
     </nav>
 
@@ -38,7 +38,6 @@
                 <input type="text" id="nomActeur" name="nom" value="{{ old('nom') }}" placeholder="Nom" required>
             </div>
             <div class="form-control-file">
-                <label for="photo">Sélectionner l'image</label>
                 <input type="file" id="photo" name="photo" value="{{ old('photo') }}" placeholder="Photo" required>
             </div>
             <div class="form-control">
@@ -47,7 +46,12 @@
             </div>
             <div class="form-control">
                 <label for="rolePrincipal"></label>
-                <input type="text" id="rolePrincipal" name="rolePrincipal" value="{{ old('rolePrincipal') }}" placeholder="Rôle Principal" required>
+                <select name="rolePrincipal" id="rolePrincipal">
+                    <option value="Acteur">Acteur</option>
+                    <option value="Producteur">Producteur</option>
+                    <option value="Réalisateur">Réalisateur</option>
+                </select>
+                
             </div>
             <div class="form-control">
                 <label for="date"></label>

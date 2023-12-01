@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MHD - Modify</title>
+    <title>MHD - Create</title>
     <link rel="shortcut icon" href="{{ asset('images/fav-icon.png') }}" />
     <link rel="stylesheet" href="{{ asset('css/create.css') }}">
     <!--==Import-poppins-font====================-->
@@ -20,42 +20,32 @@
 
 <body>
     <nav>
-        <a href="{{ route('netflix.personne') }}" class="logo">
-            Personnes<span>.hd</span>
+        <a href="{{ route('netflix.usager') }}" class="logo">
+            Usagers<span>.hd</span>
         </a>
     </nav>
 
     <div class="form-wrapper">
-        <h2>Modifier une personne</h2>
-        <form method="post" action="{{ route('personne.update', $personne) }}" enctype="multipart/form-data">
+        <h2>Modifier un usager</h2>
+        <form method="post" action="{{ route('usagers.update', $usager)}}" enctype="multipart/form-data">
             @csrf
             @method('Patch')
             <div class="form-control">
-            <label for="prenomActeur"></label>
-                <input type="text" id="prenomActeur" name="prenom" value="{{ $personne->prenom }}" placeholder="Prénom" required>
+            <label for="nomUsager"></label>
+                <input type="text" id="nomUsager" name="nomUsager" value="{{ $usager->nomUsager }}" placeholder="Username" required>
             </div>
             <div class="form-control">
-                <label for="nomActeur"></label>
-                <input type="text" id="nomActeur" name="nom" value="{{ $personne->nom }}" placeholder="Nom" required>
-            </div>
-            <div class="form-control-file">
-                <input type="file" id="photo" name="photo" style="margin: 10px;">
-                <img src="{{ $personne->photo }}" alt="" height="60" width="60">
-            </div>
-          
-            <div class="form-control">
-                <label for="wikiLien"></label>
-                <input type="url" id="wikiLien" name="wikiLien" value="{{ $personne->wikiLien }}" placeholder="Lien Wikipedia" required>
+                <input type="text" id="prenom" name="prenom" value="{{ $usager->prenom }}" placeholder="Prénom" required>
             </div>
             <div class="form-control">
-                <label for="rolePrincipal"></label>
-                <input type="text" id="rolePrincipal" name="rolePrincipal" value="{{ $personne->rolePrincipal }}" placeholder="Rôle Principal" required>
+                <label for="nom"></label>
+                <input type="text" id="nom" name="nom" value="{{ $usager->nom }}" placeholder="Nom" required>
             </div>
             <div class="form-control">
-                <label for="date"></label>
-                <input type="date" id="date" name="date" value="{{ $personne->date }}" placeholder="Date" required>
+                <label for="email"></label>
+                <input type="email" id="email" name="email" value="{{ $usager->email }}" placeholder="Email" required>
             </div>
-            <button type="submit">Modify</button>
+            <button type="submit">Create</button>
             <div class="form-help">
                 <a href="#">Need help?</a>
             </div>

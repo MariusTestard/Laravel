@@ -21,7 +21,7 @@
 <body>
     <nav>
         <a href="#" class="logo">
-            Films<span>.hd</span>
+            Home<span>.hd</span>
         </a>
     </nav>
 

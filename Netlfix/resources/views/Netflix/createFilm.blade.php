@@ -57,20 +57,15 @@
                     </div>
                 </div>
             </div>
-            <div class="containerSideToSideInput">
-                <div class="div50to50">
                     <div class="form-control">
                         <label for="lienFilm"></label>
                         <input type="url" id="lienFilm" name="lienFilm" value="{{ old('lienFilm') }}" placeholder="Lien du film" required>
                     </div>
-                </div>
-                <div class="div50to50">
                     <div class="form-control-file">
-                        <label for="pochette">Sélectionner l'image</label>
-                        <input type="file" id="pochette" name="pochette" value="{{ old('pochette') }}" placeholder="Pochette" required>
+                        <div>
+                            <input type="file" id="pochette" name="pochette" value="{{ old('pochette') }}" placeholder="Pochette" required>
                     </div>
                 </div>
-            </div>
             <div class="containerSideToSideInput">
                 <div class="div50to50">
                     <div class="form-control">
@@ -100,8 +95,7 @@
                 </div>
             </div>
             <div class="form-control-file">
-                <label for="bannerLien">Sélectionner la bannière</label>
-                <input type="file" id="bannerLien" name="bannerLien" value="{{ old('bannerLien') }}" placeholder="Lien de la bannière" required>
+                <input type="file" id="bannerLien" name="bannerLien"  value="{{ old('bannerLien') }}" placeholder="Lien de la bannière" required>
             </div>
             <div class="containerSideToSideInput">
                 <div class="div50to50">

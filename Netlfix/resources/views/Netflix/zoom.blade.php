@@ -3,8 +3,8 @@
 @section('title', 'MHD - ZOOM Personne')
 
 @section('logo')
-<a href="#" class="logo">
-    Acteurs<span>.hd</span>
+<a href="/personne" class="logo">
+    Personnes<span>.hd</span>
 </a>
 @endsection
 
@@ -86,7 +86,7 @@
     <img alt="" src="{{ $film->pochette }}">
     @endforeach
     @else
-    Cette personne n'apparaît dans aucun film
+        Cette personne n'apparaît dans aucun film
     @endif
     </div>
    
@@ -102,7 +102,7 @@
     <img alt="" src="{{ $film->pochette }}">
     @endforeach
     @else
-    Cette personne n'a produit aucun film
+        Cette personne n'a produit aucun film
     @endif
     </div>
    
@@ -118,7 +118,7 @@
     <img alt="" src="{{ $film->pochette }}">
     @endforeach
     @else
-    Cette personne n'a réalisé aucun film
+        Cette personne n'a réalisé aucun film
     @endif
     </div>
    

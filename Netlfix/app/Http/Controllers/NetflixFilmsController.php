@@ -69,19 +69,15 @@ class NetflixFilmsController extends Controller
     public function destroyRemove(Request $request)
     {
         try {
-             $film = Film::findOrFail($request->film_id->id);
-             $acteur = Personne::findOrFail($request->personne_id->id);
-             Log::debug($film);
+            $film = Film::findOrFail($request->film_id);
+            $acteur = Personne::findOrFail($request->personne_id);
+            Log::debug($film);
             Log::debug($acteur);
-            // $acteur->filmsDedans()->detach($idFilm); 
-            // $film->acteurs()->detach($idActeur);
-  
-
-                $test=DB::select('select ' .$film.$acteur.' from film_personne');
-                Log::debug($test);
-                $test->delete();
-            return redirect()->route('netflix.index')->withErrors(["Nous avons retiré l'acteur" . $acteurs->nom . " du film " . $films->titre . "!"]);
+            $film->acteurs()->detach($acteur);
+            //$film->detach($acteur);
+            return redirect()->route('netflix.index')->withErrors(["Nous avons retiré l'acteur" . $acteur->nom . " du film " . $film->titre . "!"]);
         } catch (\Throwable $e) {
+            Log::debug($e);
             return redirect()->route('netflix.index')->withErrors(["Vous n'êtes pas parvenu à supprimer un acteur d'un film"]);
         }
         return View('Netflix.filmRemove', compact('acteur', 'film'));

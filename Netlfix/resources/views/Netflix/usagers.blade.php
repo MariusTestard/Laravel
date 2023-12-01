@@ -5,7 +5,7 @@
 
 @section('logo')
 <a href="#" class="logo">
-    Films<span>.hd</span>
+    Usagers<span>.hd</span>
 </a>
 @endsection
 @section('contenu')
@@ -33,7 +33,7 @@
     @endif
 
 @if(session('messages'))
-    <div class="pToast">{{ session('messages') }}</div>
+    <div id="pToast">{{ session('messages') }}</div>
 @endif
 
     <!--==Scroll-Progress-bar=========================-->
@@ -67,8 +67,10 @@
                     <!--quality----->
                     <div id="topFilm">
                         <span class="quality">{{$usager->role}}</span>
-                        @role('admin')
+                        @if(auth()->check() && (auth()->user()->role == 'admin' || auth()->user()->role == 'normal'))
                         <a href="{{ route('usagers.edit', [$usager]) }}" class="modifygear">⚙️</a>
+                        @endif
+                        @role('admin')
                         <form method="POST" action="{{ route('usagers.destroy', [$usager->id]) }}">
                             @csrf
                             @method('DELETE')

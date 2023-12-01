@@ -71,6 +71,34 @@ form .form-control {
     margin-bottom: 16px;
 }
 
+#pToast {
+    color: white;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    background-color: rgb(48, 187, 20);
+    position: fixed;
+    left: 2%;
+    top: 92%;
+    z-index: 999;
+}
+
+.form-control-file {
+    margin-bottom: 16px;
+    background: #444;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 1rem;
+    padding: 0 20px;
+    width: 99%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .form-control input {
     height: 100%;
     width: 99%;

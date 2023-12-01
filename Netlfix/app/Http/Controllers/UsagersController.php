@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Usager;
-//use App\Http\Controllers\Auth;
+use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\facades\Hash;
 
 class UsagersController extends Controller
 {
@@ -33,16 +34,16 @@ class UsagersController extends Controller
     {
         try {
             $usager = new Usager($request->all());
-
+            $usager->password = Hash::make($usager->password);
             $usager->save();
-            return redirect()->route('netflix.usagers')->with('messages', "Ajout de: " . $usager->nomUsager . " réussi!");
+            return redirect()->route('netflix.usager')->with('messages', "Ajout de: " . $usager->nomUsager . " réussi!");
         }
 
         catch (\Throwable $e){
             Log::debug($e);
-            return redirect()->route('netflix.usagers')->withErrors(["L'ajout d'un utilisateur n'a pas fonctionné!"]);
+            return redirect()->route('netflix.usager')->withErrors(["L'ajout d'un utilisateur n'a pas fonctionné!"]);
         }
-        return redirect()->route('netflix.usagers');
+        return redirect()->route('netflix.usager');
     }
     
     public function edit(Usager $usager)
@@ -59,14 +60,14 @@ class UsagersController extends Controller
             $usager->email = $request->email;
 
             $usager->save();
-            return redirect()->route('netflix.usagers')->with('messages', "Modification de: " . $usager->nomUsager . " réussi!");
+            return redirect()->route('netflix.usager')->with('messages', "Modification de: " . $usager->nomUsager . " réussi!");
         }
 
         catch (\Throwable $e){
             Log::debug($e);
-            return redirect()->route('netflix.usagers')->withErrors(["La modification de l'utilisateur n'a pas fonctionné!"]);
+            return redirect()->route('netflix.usager')->withErrors(["La modification de l'utilisateur n'a pas fonctionné!"]);
         }
-        return redirect()->route('netflix.usagers');
+        return redirect()->route('netflix.usager');
     }
 
     public function destroy($id)
@@ -74,32 +75,14 @@ class UsagersController extends Controller
         try {
             $usager = Usager::findOrFail($id);
             $usager->delete();
-            return redirect()->route('netflix.usagers')->with('messages', "Supression de: " . $usager->nomUsager . " réussi!");
+            return redirect()->route('netflix.usager')->with('messages', "Supression de: " . $usager->nomUsager . " réussi!");
         }
         catch(\Throwable $e) {
             Log::debug($e);
-            return redirect()->route('netflix.usagers')->withErrors(["La supression d'un utilisateur n'a pas fonctionné!"]);
+            return redirect()->route('netflix.usager')->withErrors(["La supression d'un utilisateur n'a pas fonctionné!"]);
         }
-            return redirect()->route('netflix.usagers');
+            return redirect()->route('netflix.usager');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     /**
      * Show login form

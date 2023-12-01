@@ -3,7 +3,7 @@
 @section('title', 'MHD - ZOOM Film')
 
 @section('logo')
-<a href="#" class="logo">
+<a href="/" class="logo">
     Films<span>.hd</span>
 </a>
 @endsection
@@ -118,10 +118,13 @@
     <!--screenshots-container----------->
     <div class="screen-s-container">
 
+    @if (count($film->acteurs))
     @foreach($film->acteurs as $acteur)
     <img alt="" src="{{ $acteur->photo }}">
     @endforeach
-
+    @else
+        Ce film n'a présentement aucun acteur.
+    @endif
     </div>
 </section>
 <!--Download====================================-->

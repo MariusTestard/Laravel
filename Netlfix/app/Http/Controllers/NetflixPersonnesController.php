@@ -90,14 +90,14 @@ class NetflixPersonnesController extends Controller
             $personne->prenom = $request->prenom;
             $personne->nom = $request->nom;
             $personne->date = $request->date;
-            //$personne->photo = $request->photo;
             $personne->rolePrincipal = $request->rolePrincipal;
             $personne->wikiLien = $request->wikiLien;
 
 
             
-
-            $uploadedFile = $request->file('photo');
+            if($request->file('photo') != NULL)
+            {
+             $uploadedFile = $request->file('photo');
             $nomFichierUnique = str_replace(' ', '_', $personne->nom) . '-' . uniqid() . '.' . $uploadedFile->extension();
 
             try{
@@ -106,7 +106,9 @@ class NetflixPersonnesController extends Controller
             catch(\Symfony\Component\HttpFoundation\File\Exception\FileException $e){
                 Log::error("Erreur lors du téléversement du fichier. ", [$e]);
             }
-            $personne->photo = "/img/personnes/" . $nomFichierUnique;
+            $personne->photo = "/img/personnes/" . $nomFichierUnique;   
+            }
+            
 
             
             $personne->save();

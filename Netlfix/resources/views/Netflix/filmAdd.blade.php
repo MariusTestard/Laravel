@@ -26,7 +26,7 @@
     </nav>
 
     <div class="form-wrapper">
-        <h2>Ajouter un réalisateur</h2>
+        <h2>Ajouter un acteur</h2>
         <form method="post" action="{{ route('filmsAdd.store')}}">
             @csrf
             <div>
@@ -40,7 +40,7 @@
                 </select>
             </div>
             <select class="form-control" id="idPerson" name="personne_id">
-                <option>Veuillez choisir un réalisateur...</option>
+                <option>Veuillez choisir un acteur...</option>
                 @foreach($acteurs as $acteur)
                 <option value="{{$acteur->id }}" {{$acteur->id == old('id') ? 'selected' : null }}>
                     {{ $acteur->prenom }} {{ $acteur->nom }}

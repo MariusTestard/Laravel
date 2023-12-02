@@ -55,56 +55,8 @@
             </div>
         </form>
     </div>
+    <script src="js/ajaxActorRemoval.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </body>
-<script>
-document.getElementById("idFilm").onselect = function() {ajaxChange()};
-function ajaxChange(str) {
-    console.log(str);
-    let select_item = document.getElementById('idPerson');
-    let options = select_item.getElementsByTagName('option');
 
-    // REMOVES ALL OPTIONS IN SELECT
-    for (var i=options.length; i--;) {
-        select_item.removeChild(options[i]);
-    }
-
-    
-
-    // ADD OPTION IN SELECT
-    var opt = document.createElement('option');
-    opt.innerHTML = "Test";
-    select_item.appendChild(opt);
-
-    $(document).ready(function(){
-    $('#ajaxSubmit').click(function(e){
-        e.preventDefault();
-
-            var varName = $("input[name='token']").val();
-            var varName = $("input[name='token']").val();
-            var varName = $("input[name='token']").val();
-            var varName = $("input[name='token']").val();
-
-            $.ajax({
-                url: "ajouterPOST",
-                type: 'POST',
-                data:{
-                    _token:_token,
-                    nom:nom,
-                    annee:annee,
-                    description:description
-                },
-                success: function(data) {
-                    if(data === "reussi") {
-                        $('#ajoutSuccess').toast('show');
-                    }
-                },
-                error: functio(xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status);
-                    alert(thrownError);
-                } 
-            });
-    });
-});
-}
-</script>
 </html>

@@ -6,8 +6,7 @@ use App\Http\Requests\PersonneRequest;
 use Illuminate\Http\Request;
 use App\Models\Personne;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
-use File;
+use \Illuminate\Support\Facades\File;
 
 class NetflixPersonnesController extends Controller
 {

@@ -7,9 +7,7 @@ use App\Models\Film;
 use App\Models\FilmPersonne;
 use App\Models\Personne;
 use Illuminate\Support\Facades\Log;
-use Illuminate\Support\Facades\Storage;
-use File;
-use DB;
+use \Illuminate\Support\Facades\File;
 
 class NetflixFilmsController extends Controller
 {

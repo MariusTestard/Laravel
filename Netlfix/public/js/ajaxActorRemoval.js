@@ -5,7 +5,8 @@ document.getElementById("idFilm").onselect = function(e) {
 };
 
 // FUNCTION CALLED ATTRIBUT "onchange" IN HTML
-function ajaxChange(str) {
+function ajaxChange(_str) {
+    var str = _str;
     console.log(str);
     let select_item = document.getElementById('idPerson');
     let options = select_item.getElementsByTagName('option');
@@ -16,27 +17,31 @@ function ajaxChange(str) {
     }
 
     $.ajax({
-            url         :'getBTB',
-            type       :'GET',
-            dataType   :'JSON',
-            success    :'success',
-            data       :{'term':str},
-            success    :function(result){
-                var data = result;
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        /*
+        type:
+        url: '/home',
+        data : { id : str },
+        cache: false,
+        dataType: 'json',
+        */
+        url: '{{url("/home")}}',
+        data : {id:str},
+        success : function(result){
+            alert(result);
+            for (const element of result) {
                 var opt = document.createElement('option');
-                opt.innerHTML = data.id;
+                opt.innerHTML = element;
                 select_item.appendChild(opt);
             }
-        });
-    
-
-
-    /*
-    // ADD OPTION IN SELECT
-    var opt = document.createElement('option');
-    opt.innerHTML = data.id;
-    select_item.appendChild(opt);
-    */
+        },
+        error: function (xhr, ajaxOptions, thrownError) {
+            console.log(xhr.status);
+            console.log(thrownError);
+        }
+    });
 }
 
 

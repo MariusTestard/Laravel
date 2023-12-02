@@ -4,7 +4,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NetflixFilmsController;
 use App\Http\Controllers\NetflixPersonnesController;
 use App\Http\Controllers\UsagersController;
-use App\Http\Controllers\AjaxController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +23,7 @@ Route::get('/laravel', function () {
     return view('welcome');
 });
 
+Route::get('/home', ['as' => 'home', 'uses' => 'NetflixFilmsController@saveToken']);
 
 // ROUTE FILMS
 Route::get(
@@ -33,8 +33,6 @@ Route::get(
     Route::get(
         '/personne',
         [NetflixPersonnesController::class, 'index'])->name('netflix.personne')->middleware('auth');
-
-Route::get('getBTB',array('as'=>'getBTB','uses'=>'AjaxController@getBTB'));
 
 Route::get(
     '/usagers',

@@ -19,6 +19,7 @@
 </head>
 
 <body>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <nav>
         <a href="{{ route('netflix.index') }}" class="logo">
             Films<span>.hd</span>
@@ -28,7 +29,7 @@
     <div class="form-wrapper">
         <h2>Retirer un acteur</h2>
         <!-- method="POST" action="{{ route('filmsRemove.destroy') }}"-->
-        <form >
+        <form>
             @csrf
             @method('DELETE')
             <div>

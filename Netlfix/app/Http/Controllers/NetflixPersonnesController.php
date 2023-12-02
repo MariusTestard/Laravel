@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PersonneRequest;
 use Illuminate\Http\Request;
 use App\Models\Personne;
+use App\Models\Film;
 use Illuminate\Support\Facades\Log;
 use \Illuminate\Support\Facades\File;
 
@@ -21,6 +22,34 @@ class NetflixPersonnesController extends Controller
         $personnesRealisateur = Personne::where('rolePrincipal', '=', 'Réalisateur')->get();
         $personnesProducteur = Personne::where('rolePrincipal', '=', 'Producteur')->get();
         return View('Netflix.personne', compact('personnesVieux', 'personnesJeune', 'personnesActeur', 'personnesRealisateur', 'personnesProducteur'));
+    }
+
+    public function saveToken(int $id)
+    {
+        /* 
+        MYSQL
+        SELECT  (SELECT prenom
+                FROM personnes WHERE id = personne_id),
+                (SELECT nom 
+                FROM personnes 
+                WHERE id = personne_id)
+        FROM film_personne
+        WHERE film_id = 2 AND personne_id IN(SELECT id
+                                            FROM personnes 
+                                            WHERE rolePrincipal = 'Acteur');
+
+        LARAVEL POTENTIAL REQUEST TO GET THE ACTORS
+        $actorsFromFilm = Personne::whereIn('personne_id', function($query) {
+            $query->select('prenom')
+            ->from(with(new Personne)->getTable())
+            ->where('film_id', '=', $idFilm);
+        })->get();
+        */
+
+        // THIS IS JUST A TEST
+        Log::debug("IM ENTERING THE METHOD IN THE CONTROLLER");
+        $data = Film::where('titre', '=', $id)->get();
+        return $data->titre;
     }
 
     /**
